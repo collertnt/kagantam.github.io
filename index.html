@@ -3,367 +3,332 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kagan Tam | Engineering & Volleyball</title>
-<meta name="description" content="Kagan Tam: Nanotechnology Engineering student at the University of Waterloo, design engineer, and championship volleyball captain.">
+<title>Kagan Tam</title>
+<meta name="description" content="Kagan Tam: Nanotechnology Engineering student at the University of Waterloo and volleyball player.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<!-- All photos + the resume PDF live inside photos.js, so you only upload 2 files -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="photos.js"></script>
 <style>
-/* ===== COLOURS: change these to re-theme the whole site ===== */
+/* ===== COLOURS + FONTS (change these to re-theme the site) ===== */
 :root{
-  --bg:#ffffff;                       /* main background */
-  --tint:#f3f6fa;  --tint2:#e9eff6;   /* alternating section backgrounds */
-  --soft:#d6dfea;  --soft2:#e3ebf4;   /* borders, tags */
-  --primary:#1f3a5f;                  /* navy: headings accents, buttons */
-  --accent:#b8873a;                   /* muted gold: highlights */
-  --ink:#1c2433; --muted:#5b6475; --card:#ffffff; --line:#e3e8ef;
-  --radius:22px; --max:1100px;
-  --ease:cubic-bezier(.22,1,.36,1);
+  --paper:#f4f1ec;   /* main background */
+  --paper2:#fbfaf7;  /* alternate background */
+  --dark:#151413;    /* dark sections */
+  --ink:#151413; --muted:#5f5a54; --rule:#d9d2c7;
+  --green:#1e4c41;   /* links + highlights */
+  --sand:#d1bfb1;
+  --serif:Newsreader, Georgia, serif;
+  --sans:"IBM Plex Sans", Helvetica, Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+  --max:1120px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
-h1,h2,h3{font-family:Plus Jakarta Sans,Inter,sans-serif;line-height:1.15;font-weight:700;letter-spacing:-.02em}
+body{background:var(--paper);color:var(--ink);font:17px/1.7 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-.wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-.eyebrow{color:var(--accent);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;margin-bottom:10px}
-h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:18px}
-.lead{color:var(--muted);font-size:1.08rem;max-width:720px}
-.grid{display:grid;gap:22px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 10px 30px rgba(31,58,95,.06)}
-.card h3{font-size:1.2rem;margin-bottom:8px}
-.card p,.card li{color:var(--muted)}
-.tag{display:inline-block;padding:5px 13px;border-radius:999px;background:var(--soft2);font-size:.85rem;margin:4px 6px 0 0;color:#1f3a5f}
-.btn{display:inline-block;padding:12px 24px;border-radius:999px;font-weight:600;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s}
-.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(31,58,95,.25)}
-.btn-primary{background:var(--primary);color:#fff}
-.btn-ghost{border:2px solid var(--accent);color:var(--accent);background:#fff}
+a{color:var(--green);text-underline-offset:3px;text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,4.6vw,3.3rem);margin-bottom:22px}
+h3{font-size:1.45rem;margin:36px 0 10px}
+p{margin-bottom:16px;max-width:66ch}
+.mono{font-family:var(--mono);font-size:.8rem;letter-spacing:.02em}
+.muted{color:var(--muted)}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
 
 /* ===== NAV ===== */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,box-shadow .4s}
-nav.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,.05)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-nav .logo{font-family:Plus Jakarta Sans;font-weight:700;color:var(--ink);text-decoration:none;font-size:1.3rem}
-nav .logo span{color:var(--primary)}
-nav ul{display:flex;gap:22px;list-style:none}
-nav ul a{color:var(--ink);text-decoration:none;font-size:.92rem;font-weight:500}
-nav ul a:hover{color:var(--primary)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(244,241,236,.94);border-bottom-color:var(--rule)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+nav .name{font-family:var(--serif);font-size:1.25rem;color:var(--ink);text-decoration:none}
+nav ul{display:flex;gap:20px;list-style:none}
+nav ul a{font-family:var(--mono);font-size:.78rem;color:var(--ink);text-decoration:none}
+nav ul a:hover{text-decoration:underline}
 @media(max-width:760px){nav ul{display:none}}
 
-/* ===== LAYERED SCROLL: each section is a card that slides over the last ===== */
+/* ===== LAYERED SCROLL: each section slides up over the last ===== */
 .anchor{display:block;height:0}
-.panel{position:sticky;top:0;min-height:100vh;padding:110px 0 90px;border-radius:40px 40px 0 0;
-  box-shadow:0 -24px 50px rgba(15,26,42,.10);overflow:hidden}
-.panel > .inner{transform-origin:50% 0;will-change:transform;
-  transform:scale(calc(1 - var(--cover,0) * .07)) translateY(calc(var(--cover,0) * -30px))}
-.panel::after{content:"";position:absolute;inset:0;background:#0f1a2a;opacity:calc(var(--cover,0) * .22);pointer-events:none;border-radius:inherit}
-.bg-main{background:var(--bg)} .bg-alt{background:var(--tint)} .bg-alt2{background:var(--tint2)}
-.bg-mix{background:linear-gradient(160deg,var(--tint),var(--tint2))}
+.panel{position:sticky;top:0;min-height:100vh;padding:110px 0 100px;border-radius:18px 18px 0 0;box-shadow:0 -10px 30px rgba(0,0,0,.08);overflow:hidden}
+.panel > .inner{transform-origin:50% 0;will-change:transform;transform:scale(calc(1 - var(--cover,0) * .04))}
+.panel::after{content:"";position:absolute;inset:0;background:#000;opacity:calc(var(--cover,0) * .18);pointer-events:none}
+.bg-paper{background:var(--paper)} .bg-white{background:var(--paper2)}
+.bg-dark{background:var(--dark);color:#eeeae4}
+.bg-dark h2,.bg-dark h3{color:#fff} .bg-dark .muted,.bg-dark p{color:#bdb6ad} .bg-dark a{color:var(--sand)}
+.bg-dark .side{color:#bdb6ad;border-color:#3a3632} .bg-dark .row{border-color:#3a3632}
 
-/* ===== HERO SANDBOX ===== */
-.hero-head{text-align:center;margin-bottom:26px}
-.hero-head h1{font-size:clamp(2.6rem,7vw,4.6rem);color:var(--ink)}
-.hero-head h1 span{color:var(--primary)}
-.hero-head p{color:var(--muted);font-size:clamp(1rem,2vw,1.15rem);max-width:640px;margin:10px auto 0}
-.hero-head .hint{display:inline-block;margin-top:14px;background:#fff;border:2px dashed var(--soft);padding:6px 16px;border-radius:999px;font-size:.9rem;color:var(--primary);font-weight:600}
-.sandbox{position:relative;background:#eef3f8 radial-gradient(#d6dfea 1.3px,transparent 1.6px) 0 0/18px 18px;
-  border:10px solid var(--primary);border-radius:32px;padding:22px 18px 10px;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:6px 10px;
-  box-shadow:inset 0 8px 0 rgba(0,0,0,.035),0 24px 60px rgba(31,58,95,.18)}
-@media(max-width:760px){.sandbox{grid-template-columns:repeat(2,1fr);border-width:8px;padding:14px 8px 6px}}
-.station{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--ink);
-  border-radius:26px;padding:4px 4px 16px;transition:transform .45s var(--ease),background .45s}
-.station:nth-child(even){transform:translateY(14px)}
-.station:hover,.station:focus-visible{transform:translateY(-8px);background:rgba(255,255,255,.6);outline:none}
+/* ===== SECTION GRID: number on the left, content on the right ===== */
+.cols{display:grid;grid-template-columns:170px 1fr;gap:40px}
+.side{font-family:var(--mono);font-size:.8rem;color:var(--muted);border-top:1px solid var(--rule);padding-top:12px;align-self:start}
+.side b{display:block;font-weight:500;color:inherit;font-size:1.6rem;font-family:var(--serif);margin-bottom:2px}
+@media(max-width:800px){.cols{grid-template-columns:1fr;gap:18px}.side{display:flex;gap:10px;align-items:baseline}.side b{font-size:1.2rem}}
+
+/* ===== HERO (photo at the very top) ===== */
+#top-panel{border-radius:0;box-shadow:none;padding:90px 0 60px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;min-height:calc(100vh - 150px)}
+.hero h1{font-size:clamp(3.6rem,10vw,7.5rem);line-height:.92;margin:14px 0 26px;letter-spacing:-.03em}
+.hero h1 i{font-style:italic;color:var(--green)}
+.hero p{font-size:1.15rem;max-width:34ch}
+.hero .links{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;font-family:var(--mono);font-size:.85rem}
+.hero figure img{width:100%;height:min(calc(100vh - 190px),720px);min-height:380px;object-fit:cover;object-position:50% 25%}
+.hero figcaption{margin-top:10px}
+@media(max-width:800px){.hero{grid-template-columns:1fr;gap:28px}.hero figure{order:-1}.hero figure img{height:auto;aspect-ratio:4/5;min-height:0}}
+
+/* ===== SANDBOX ===== */
+.sandbox{background:var(--sand) radial-gradient(#c3ae9d 1.2px,transparent 1.5px) 0 0/16px 16px;border:8px solid #2a2622;border-radius:10px;
+  padding:18px 14px 6px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px 10px;margin-top:10px}
+@media(max-width:760px){.sandbox{grid-template-columns:repeat(2,1fr);border-width:6px;padding:10px 6px 4px}}
+.station{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--ink);padding:2px 2px 14px;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.station:nth-child(even){transform:translateY(12px)}
+.station:hover,.station:focus-visible{transform:translateY(-6px);outline:none}
 .station svg{width:100%;height:auto;overflow:visible}
-.sign{display:flex;flex-direction:column;align-items:center;background:#fff;border:2px solid var(--soft);border-radius:18px;padding:6px 16px;transition:all .35s var(--ease);text-align:center}
-.sign b{font-family:Plus Jakarta Sans;font-weight:600;font-size:1.02rem}
-.sign small{color:var(--muted);font-size:.78rem}
-.station:hover .sign{background:var(--primary);border-color:var(--primary);color:#fff}
-.station:hover .sign small{color:#c9d6e6}
-.cloud{position:absolute;background:#fff;border-radius:999px;opacity:.8;z-index:0;animation:drift linear infinite}
-.cloud:before,.cloud:after{content:"";position:absolute;background:#fff;border-radius:50%}
-.cloud:before{width:50%;height:150%;left:15%;top:-60%} .cloud:after{width:35%;height:120%;left:50%;top:-40%}
-@keyframes drift{from{transform:translateX(-20vw)}to{transform:translateX(120vw)}}
+.station .lbl{font-family:var(--mono);font-size:.82rem;background:#fbfaf7;border:1px solid #2a2622;padding:3px 10px}
+.station:hover .lbl{background:#2a2622;color:#fbfaf7}
 
-/* ===== ABOUT ===== */
-.about-top{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:center}
-@media(max-width:760px){.about-top{grid-template-columns:1fr;text-align:center}.about-top .face{margin:0 auto}}
-.face{width:260px;aspect-ratio:3/4;border-radius:30px;overflow:hidden;border:8px solid #fff;box-shadow:0 20px 50px rgba(31,58,95,.25);transform:rotate(-3deg);background:var(--soft)}
-.face img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
-.skills{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:40px}
-.skill .ico{font-size:1.7rem;margin-bottom:6px}
-
-/* ===== ENGINEERING ===== */
-.story{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:40px}
-.step .num{display:inline-block;background:var(--soft2);color:#1f3a5f;font-weight:700;font-size:.75rem;letter-spacing:.1em;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+/* ===== LISTS / ROWS ===== */
+.row{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:16px 0;border-top:1px solid var(--rule)}
+.row:last-child{border-bottom:1px solid var(--rule)}
+.row .k{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding-top:4px}
+.row p{margin:0}
+.row h4{font-family:var(--sans);font-weight:600;font-size:1rem}
+.row ul{padding-left:18px;margin-top:4px;color:var(--muted)}
+@media(max-width:600px){.row{grid-template-columns:1fr;gap:4px}}
 
 /* ===== INTERNSHIP ===== */
-.intern-top{grid-template-columns:1.2fr 1fr;align-items:start;margin-top:30px}
-@media(max-width:860px){.intern-top{grid-template-columns:1fr}}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
-.stat b{display:block;font-family:Plus Jakarta Sans;font-size:1.8rem;color:var(--primary)}
-.stat span{color:var(--muted);font-size:.88rem}
-.designs{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:30px}
-.design{padding:0;overflow:hidden}
-.design .pic{background:#fff;height:200px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
-.design .pic img{max-height:196px;width:100%;object-fit:contain}
-.design .body{padding:20px}
-.design .rec{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:.72rem;padding:3px 10px;border-radius:999px;margin-bottom:8px;letter-spacing:.06em}
-.design dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin-top:12px;font-size:.9rem}
-.design dt{color:var(--muted)} .design dd{color:var(--ink);font-weight:500}
-blockquote{margin-top:30px;border-left:5px solid var(--primary);padding:22px 26px;background:#fff;border-radius:0 var(--radius) var(--radius) 0;font-size:1.08rem}
-blockquote footer{margin-top:12px;color:var(--muted);font-size:.92rem}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0 8px}
+.figs figure{background:#fff;border:1px solid var(--rule)}
+.figs img{height:170px;width:100%;object-fit:contain;padding:8px}
+.figs figcaption{font-family:var(--mono);font-size:.75rem;padding:8px 10px;border-top:1px solid var(--rule);color:var(--muted)}
+@media(max-width:700px){.figs{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;margin:16px 0 28px;font-size:.95rem}
+th,td{text-align:left;padding:10px 12px 10px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-weight:500;font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+tr.pick td{color:var(--green);font-weight:500}
+.tablewrap{overflow-x:auto}
+blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.4vw,1.7rem);line-height:1.35;border-left:2px solid var(--green);padding-left:24px;margin:34px 0;max-width:40ch}
+blockquote cite{display:block;font-family:var(--mono);font-style:normal;font-size:.78rem;color:var(--muted);margin-top:14px}
 
-/* ===== VOLLEYBALL ===== */
-.timeline{position:relative;margin-top:40px;padding-left:34px}
-.timeline:before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:4px;border-radius:4px;background:linear-gradient(var(--soft),var(--accent))}
-.tl{position:relative;margin-bottom:22px}
-.tl:before{content:"";position:absolute;left:-32px;top:26px;width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--primary)}
-.tl .when{color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
-.gallery{grid-template-columns:2fr 1fr;margin-top:40px}
-.gallery figure{border-radius:var(--radius);overflow:hidden;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
-.gallery img{width:100%;flex:1;object-fit:cover;min-height:0}
-.gallery figcaption{padding:10px 14px;color:var(--muted);font-size:.88rem}
-.gallery .tall{grid-row:span 2}
-@media(max-width:760px){.gallery{grid-template-columns:1fr}.gallery .tall{grid-row:auto}}
-.traits{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:24px}
-
-/* ===== RESUME ===== */
-.resume-grid{grid-template-columns:1fr 1fr;margin-top:30px}
-@media(max-width:860px){.resume-grid{grid-template-columns:1fr}}
-.job{margin-bottom:22px}
-.job h3{font-size:1.08rem}
-.job .meta{color:var(--primary);font-size:.85rem;margin-bottom:6px;font-weight:500}
-.job ul{padding-left:18px}
-.job li{color:var(--muted);margin-bottom:4px}
+/* ===== VOLLEYBALL PHOTOS ===== */
+.photos{display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:auto auto;gap:14px;margin:32px 0}
+.photos figure:first-child{grid-row:span 2}
+.photos img{width:100%;height:100%;object-fit:cover}
+.photos figure{display:flex;flex-direction:column}
+.photos figure img{flex:1;min-height:0}
+.photos figcaption{font-family:var(--mono);font-size:.75rem;margin-top:6px;color:#9d968c}
+@media(max-width:700px){.photos{grid-template-columns:1fr}.photos figure:first-child{grid-row:auto}}
 
 /* ===== CONTACT ===== */
-#contact-panel{text-align:center;display:flex;flex-direction:column;justify-content:center}
-#contact-panel .lead{margin:0 auto 26px}
-footer.site{margin-top:80px;color:var(--muted);font-size:.85rem}
+.big-links a{display:block;font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.3;width:fit-content;word-break:break-all}
+footer{margin-top:90px;font-family:var(--mono);font-size:.75rem;color:#8a8379}
 
 /* ===== CORNER MINI ME ===== */
-#mini-me{position:fixed;right:14px;bottom:0;width:150px;height:300px;z-index:90;cursor:pointer}
+#mini-me{position:fixed;right:14px;bottom:0;width:140px;height:280px;z-index:90;cursor:pointer}
 #mini-me svg{width:100%;height:100%;overflow:visible}
-@media(max-width:600px){#mini-me{width:95px;height:190px;right:4px}}
+@media(max-width:600px){#mini-me{width:90px;height:180px;right:4px}}
 
-/* ===== SMOOTH REVEALS ===== */
-.reveal{opacity:0;transform:translateY(40px) scale(.97);filter:blur(6px);
-  transition:opacity 1.1s var(--ease),transform 1.1s var(--ease),filter 1.1s var(--ease);transition-delay:calc(var(--i,0) * 90ms)}
-.reveal.in{opacity:1;transform:none;filter:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;filter:none;transition:none}.panel>.inner{transform:none}.cloud{display:none}}
+/* ===== gentle fade-in ===== */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--i,0) * 70ms)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.panel>.inner{transform:none}}
 </style>
 </head>
 <body>
 
 <nav id="nav">
   <div class="wrap">
-    <a class="logo" href="#home">Kagan<span>.</span></a>
+    <a class="name" href="#top">Kagan Tam</a>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#engineering">Engineering</a></li>
-      <li><a href="#internship">Internship</a></li>
-      <li><a href="#volleyball">Volleyball</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about">about</a></li>
+      <li><a href="#engineering">engineering</a></li>
+      <li><a href="#internship">internship</a></li>
+      <li><a href="#volleyball">volleyball</a></li>
+      <li><a href="#resume">resume</a></li>
+      <li><a href="#contact">contact</a></li>
     </ul>
   </div>
 </nav>
 
 <main>
-<!-- ================= HERO: the mini-me sandbox ================= -->
-<span class="anchor" id="home"></span>
-<section class="panel" id="home-panel" style="background:linear-gradient(180deg,#e6edf5 0%,#f3f6fa 45%,#ffffff 100%);border-radius:0;box-shadow:none;padding-top:90px">
-  <div class="cloud" style="width:120px;height:34px;top:120px;animation-duration:70s;animation-delay:-20s"></div>
-  <div class="cloud" style="width:90px;height:26px;top:220px;animation-duration:95s;animation-delay:-60s"></div>
-  <div class="cloud" style="width:150px;height:40px;top:70px;animation-duration:120s;animation-delay:-5s"></div>
-  <div class="inner" style="position:relative;z-index:1">
-    <div class="wrap">
-      <div class="hero-head">
-        <h1>Hi, I'm <span>Kagan Tam</span></h1>
-        <p>Nanotechnology Engineering student at the University of Waterloo, design engineer, and championship volleyball captain.</p>
-        <div class="hint">👆 Click a mini me to explore that part of my story</div>
+<!-- ================= TOP: grad photo ================= -->
+<span class="anchor" id="top"></span>
+<section class="panel bg-paper" id="top-panel">
+  <div class="inner"><div class="wrap">
+    <div class="hero">
+      <div>
+        <span class="mono muted">Oakville, ON → Waterloo, ON</span>
+        <h1>Kagan<br><i>Tam</i></h1>
+        <p>I'm in first-year Nanotechnology Engineering at the University of Waterloo. I grew up building LEGO, then robots, and spent most of high school in a gym playing volleyball. This site covers both.</p>
+        <div class="links">
+          <a data-file="resume" href="resume.pdf" download="Kagan-Tam-Resume.pdf">resume (pdf)</a>
+          <a href="mailto:kagantam@gmail.com">kagantam@gmail.com</a>
+          <a href="https://www.linkedin.com/in/kagan-tam-325821357/" target="_blank" rel="noopener">linkedin</a>
+        </div>
       </div>
-
-      <!-- Each station: data-scene picks the animation, href picks where it takes you -->
-      <div class="sandbox">
-        <a class="station" href="#about"><svg data-scene="about" viewBox="0 0 240 225"></svg><span class="sign"><b>👋 About me</b><small>Who I am</small></span></a>
-        <a class="station" href="#engineering"><svg data-scene="engineering" viewBox="0 0 240 225"></svg><span class="sign"><b>🧱 Engineering</b><small>LEGO → VEX → Waterloo</small></span></a>
-        <a class="station" href="#internship"><svg data-scene="internship" viewBox="0 0 240 225"></svg><span class="sign"><b>🏗️ Internship</b><small>Building a range cover</small></span></a>
-        <a class="station" href="#volleyball"><svg data-scene="volleyball" viewBox="0 0 240 225"></svg><span class="sign"><b>🏐 Volleyball</b><small>Bench → MVP</small></span></a>
-        <a class="station" href="#resume"><svg data-scene="resume" viewBox="0 0 240 225"></svg><span class="sign"><b>📄 Resume</b><small>Experience & skills</small></span></a>
-        <a class="station" href="#contact"><svg data-scene="contact" viewBox="0 0 240 225"></svg><span class="sign"><b>✉️ Contact</b><small>Send me a message</small></span></a>
-      </div>
+      <figure>
+        <img data-photo="grad-photo" alt="Kagan Tam at graduation holding his 2025–2026 Sr. Boys Volleyball MVP plaque">
+        <figcaption class="mono muted">Grad, 2026. Sr. Boys Volleyball MVP plaque and two HSSAA championship medals.</figcaption>
+      </figure>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- ================= ABOUT ================= -->
+<!-- ================= SANDBOX ================= -->
+<span class="anchor" id="sandbox"></span>
+<section class="panel bg-white">
+  <div class="inner"><div class="wrap">
+    <div class="cols">
+      <div class="side"><b>00</b>sandbox</div>
+      <div>
+        <h2 class="reveal">Pick a Kagan</h2>
+        <p class="reveal muted">Each of these little guys is doing something I actually do. Click one and it'll take you to that part of the page.</p>
+      </div>
+    </div>
+    <div class="sandbox reveal">
+      <a class="station" href="#about"><svg data-scene="about" viewBox="0 0 240 225"></svg><span class="lbl">about me →</span></a>
+      <a class="station" href="#engineering"><svg data-scene="engineering" viewBox="0 0 240 225"></svg><span class="lbl">engineering →</span></a>
+      <a class="station" href="#internship"><svg data-scene="internship" viewBox="0 0 240 225"></svg><span class="lbl">internship →</span></a>
+      <a class="station" href="#volleyball"><svg data-scene="volleyball" viewBox="0 0 240 225"></svg><span class="lbl">volleyball →</span></a>
+      <a class="station" href="#resume"><svg data-scene="resume" viewBox="0 0 240 225"></svg><span class="lbl">resume →</span></a>
+      <a class="station" href="#contact"><svg data-scene="contact" viewBox="0 0 240 225"></svg><span class="lbl">contact →</span></a>
+    </div>
+  </div></div>
+</section>
+
+<!-- ================= 01 ABOUT ================= -->
 <span class="anchor" id="about"></span>
-<section class="panel bg-main">
-  <div class="inner"><div class="wrap">
-    <div class="about-top">
-      <div class="face reveal"><img data-photo="headshot" alt="Kagan Tam holding the Halton championship trophy"></div>
-      <div class="reveal">
-        <div class="eyebrow">About me</div>
-        <h2>Engineer on paper. Teammate everywhere else.</h2>
-        <p class="lead">I'm a first-year Nanotechnology Engineering student at the University of Waterloo. Most of what I know about engineering came from building things, and most of what I know about people came from volleyball. Both taught me the same thing: you get better by asking for feedback, studying what went wrong, and putting in the reps.</p>
+<section class="panel bg-paper">
+  <div class="inner"><div class="wrap cols">
+    <div class="side"><b>01</b>about</div>
+    <div>
+      <h2 class="reveal">A bit about me</h2>
+      <p class="reveal">I like figuring out how things work, and I like being on a team. Most of what I know about engineering came from building things and getting them wrong the first time. Most of what I know about people came from volleyball.</p>
+      <p class="reveal">The habit that ties it together is asking for feedback early. I did it with coaches when I was sitting on the bench, and I did it with my client during my internship. It's the fastest way I know to get better at something.</p>
+
+      <h3 class="reveal">What I'd bring to a team</h3>
+      <div class="grid">
+        <div class="row reveal"><span class="k">leadership</span><p>Captained Iroquois Ridge to the 2026 Halton Sr. Boys Tier 1 title, and worked as an assistant volleyball coach at my school.</p></div>
+        <div class="row reveal"><span class="k">teamwork</span><p>I've been the guy on the bench and the guy starting, so I know what a team needs from both.</p></div>
+        <div class="row reveal"><span class="k">coachability</span><p>I go looking for feedback instead of waiting for it, on the court and on design work.</p></div>
+        <div class="row reveal"><span class="k">work ethic</span><p>Extra reps, game film, and showing up every day. Nothing fancy.</p></div>
+        <div class="row reveal"><span class="k">communication</span><p>Wrote a 20-page technical report and presented it to a client's general manager.</p></div>
+        <div class="row reveal"><span class="k">problem solving</span><p>Weighing cost, durability and timeline to land on the option that actually fits.</p></div>
       </div>
-    </div>
-    <div class="grid skills">
-      <div class="card skill reveal"><div class="ico">🧭</div><h3>Leadership</h3><p>Team captain who led my school to a 2026 Halton championship, and an assistant coach who helped run practices and game plans.</p></div>
-      <div class="card skill reveal"><div class="ico">🤝</div><h3>Teamwork</h3><p>I've been a bench player and a starter, so I know how to help a team from either spot.</p></div>
-      <div class="card skill reveal"><div class="ico">🔁</div><h3>Coachability</h3><p>I ask coaches for direct feedback, review game film, and use the same habit for design reviews.</p></div>
-      <div class="card skill reveal"><div class="ico">💪</div><h3>Work ethic</h3><p>I went from the end of the bench to MVP through extra reps, film study, and showing up every day.</p></div>
-      <div class="card skill reveal"><div class="ico">🗣️</div><h3>Communication</h3><p>I wrote a 20-page engineering report and presented the findings to a client's general manager.</p></div>
-      <div class="card skill reveal"><div class="ico">🛠️</div><h3>Problem solving</h3><p>I compare trade-offs on cost, durability, and timeline to choose the option that fits the situation.</p></div>
-    </div>
-    <div class="reveal" style="margin-top:30px">
-      <span class="tag">SolidWorks</span><span class="tag">Python</span><span class="tag">C++ (Arduino)</span><span class="tag">HTML / CSS</span><span class="tag">Git</span><span class="tag">ORCA / DFT simulation</span><span class="tag">Microcontrollers</span><span class="tag">Ultrasonic sensors</span><span class="tag">Technical reporting</span><span class="tag">Material evaluation</span><span class="tag">Design iteration</span>
+      <p class="reveal mono muted" style="margin-top:22px;max-width:none">Tools: SolidWorks, Python, C++ (Arduino), HTML/CSS, Git, ORCA/DFT, microcontrollers, ultrasonic sensors</p>
     </div>
   </div></div>
 </section>
 
-<!-- ================= ENGINEERING ================= -->
+<!-- ================= 02 ENGINEERING ================= -->
 <span class="anchor" id="engineering"></span>
-<section class="panel bg-alt2">
-  <div class="inner"><div class="wrap">
-    <div class="eyebrow reveal">How it started</div>
-    <h2 class="reveal">From LEGO bricks to nanoscale materials</h2>
-    <p class="lead reveal">I've wanted to be an engineer since I was a kid. Building things showed me how much I like turning an idea into something that actually works.</p>
-    <div class="grid story">
-      <div class="card step reveal"><span class="num">01 · LEGO</span><h3>It started with LEGO</h3><p>I spent hours building with LEGO, first following the instructions and then ignoring them. Figuring out why a structure held up or fell apart was the first engineering I ever did.</p></div>
-      <div class="card step reveal"><span class="num">02 · VEX ROBOTICS</span><h3>Competitive robotics</h3><p>I joined a VEX Robotics team that won multiple awards and placed <strong>top 8 at Provincials in the Skills component</strong>. Designing, building, and driving a robot under competition pressure taught me to iterate quickly and work as a team.</p></div>
-      <div class="card step reveal"><span class="num">03 · PROTOTYPES</span><h3>Assistive goggles</h3><p>I built a wearable navigation prototype for people with visual impairments. It uses an Arduino and ultrasonic sensors, with C++ firmware that turns distance readings into real-time audio cues.</p></div>
-      <div class="card step reveal"><span class="num">04 · WATERLOO</span><h3>Formula Nano Design Team</h3><p>As a Materials Research &amp; Design Engineer, I design mechanisms for a custom probing tool and run quantum chemical simulations (ORCA, DFT) to test molecular compatibility for nanoscale fabrication.</p></div>
+<section class="panel bg-white">
+  <div class="inner"><div class="wrap cols">
+    <div class="side"><b>02</b>engineering</div>
+    <div>
+      <h2 class="reveal">How I got into engineering</h2>
+      <p class="reveal">It started with LEGO. I'd build the set on the box, take it apart, then build whatever I wanted out of the pieces. The fun part was always figuring out why something held together, or why it didn't.</p>
+      <p class="reveal">In high school I joined a VEX Robotics team. We won multiple awards and finished top 8 at Provincials in the Skills component. It was the first time I worked on something technical with a team under real pressure, and it's a big part of why I chose engineering.</p>
+      <div class="grid" style="margin-top:28px">
+        <div class="row reveal"><span class="k">childhood</span><div><h4>LEGO</h4><p class="muted">Where it started.</p></div></div>
+        <div class="row reveal"><span class="k">high school</span><div><h4>VEX Robotics</h4><p class="muted">Multiple awards. Top 8 at Provincials in Skills.</p></div></div>
+        <div class="row reveal"><span class="k">aug 2025</span><div><h4>Assistive goggles</h4><p class="muted">A wearable prototype for people with visual impairments. An Arduino reads ultrasonic sensors, and C++ firmware turns distance into audio cues through an earpiece.</p></div></div>
+        <div class="row reveal"><span class="k">sep 2026 –</span><div><h4>Formula Nano Design Team, Waterloo</h4><p class="muted">Materials Research &amp; Design Engineer. I work on mechanisms for a custom probing tool and run quantum chemistry simulations (ORCA, DFT) to check whether candidate compounds will work together.</p></div></div>
+      </div>
     </div>
   </div></div>
 </section>
 
-<!-- ================= INTERNSHIP ================= -->
+<!-- ================= 03 INTERNSHIP ================= -->
 <span class="anchor" id="internship"></span>
-<section class="panel bg-alt">
-  <div class="inner"><div class="wrap">
-    <div class="eyebrow reveal">Engineering internship · Shuswap Lake Golf Course, Blind Bay BC</div>
-    <h2 class="reveal">Designing a year-round driving range cover</h2>
-    <div class="grid intern-top">
-      <div class="reveal">
-        <p class="lead">The Shuswap Lake Golf Course asked for a covered structure over its 90 ft × 18 ft driving range. Rain and snow made the range unusable for part of the year, and the goal was to extend the season for members. As Research &amp; Design Engineer, I took the project from first concept to final technical sign-off.</p>
-        <p class="lead" style="margin-top:14px">The client needed five things: a design concept, a materials choice with reasons, a construction timeline, a budget, and the best time of year to build without disrupting golfers. I delivered a 20-page engineering report with three SolidWorks designs and 5+ iterations each, then presented it to the general manager and updated the final report with the client's feedback.</p>
+<section class="panel bg-paper">
+  <div class="inner"><div class="wrap cols">
+    <div class="side"><b>03</b>internship</div>
+    <div>
+      <span class="mono muted reveal" style="display:block;margin-bottom:10px">Research &amp; Design Engineer · Shuswap Lake Golf Course, Blind Bay BC · Apr 2024 – Sep 2025</span>
+      <h2 class="reveal">Designing a driving range cover</h2>
+      <p class="reveal">The golf course wanted a cover over its 90 × 18 ft driving range so members could keep practicing through rain and snow. My job was to figure out what that cover should be: the design, the materials, how long it would take, what it would cost, and when in the year to build it without getting in golfers' way.</p>
+      <p class="reveal">I came up with three designs in SolidWorks, went through 5+ iterations on each, and compared 30+ material and bill-of-materials options. It all went into a 20-page report with 26 sources. I presented it to the general manager in September 2025, then updated the final report with his feedback.</p>
+
+      <div class="figs reveal">
+        <figure><img data-photo="cad-tensile" alt="Tensile structure model"><figcaption>1 · tensile structure</figcaption></figure>
+        <figure><img data-photo="cad-metal-roof" alt="Metal roof structure render"><figcaption>2 · metal roof (recommended)</figcaption></figure>
+        <figure><img data-photo="cad-portable" alt="Portable cover model"><figcaption>3 · portable cover</figcaption></figure>
       </div>
-      <div class="stats reveal">
-        <div class="stat"><b>3</b><span>distinct CAD designs</span></div>
-        <div class="stat"><b>30+</b><span>material &amp; BOM alternatives analyzed</span></div>
-        <div class="stat"><b>20</b><span>page engineering report, 26 sources</span></div>
-        <div class="stat"><b>$8K–$34K</b><span>capital proposals for stakeholders</span></div>
+      <div class="tablewrap reveal">
+        <table>
+          <tr><th>Design</th><th>Cost (CAD)</th><th>Lifespan</th><th>Weather</th><th>Build time</th></tr>
+          <tr><td>Tensile structure</td><td>$8,786</td><td>5–10 yrs</td><td>Decent</td><td>4–7 days</td></tr>
+          <tr class="pick"><td>Metal roof</td><td>$33,854</td><td>50–70 yrs</td><td>Strong</td><td>~14 weeks</td></tr>
+          <tr><td>Portable cover</td><td>$2,828 / unit</td><td>3–5 yrs</td><td>Low</td><td>1–2 days</td></tr>
+        </table>
       </div>
+      <p class="reveal">I recommended the metal roof. It costs the most, but it lasts 50 to 70 years and handles BC snow and wind the best. For a tighter budget, I suggested the portable covers, since they're cheap, quick to set up, and could be rented out to golfers on bad-weather days.</p>
+      <blockquote class="reveal">“Throughout the project, Kagan demonstrated outstanding technical skills, problem-solving ability, and attention to detail.”<cite>Walt McIlhone, General Manager, Shuswap Lake Golf Course</cite></blockquote>
     </div>
-    <div class="grid designs">
-      <article class="card design reveal">
-        <div class="pic"><img data-photo="cad-tensile" alt="CAD model of the tensile structure"></div>
-        <div class="body"><h3>Design 1 · Tensile Structure</h3>
-          <p>A galvanized steel frame with a heavy-duty, UV-resistant PVC tarp that can be replaced. Quick to install and affordable.</p>
-          <dl><dt>Cost</dt><dd>$8,786</dd><dt>Lifespan</dt><dd>5–10 years</dd><dt>Weather</dt><dd>Decent</dd><dt>Install</dt><dd>4–7 days</dd></dl></div>
-      </article>
-      <article class="card design reveal">
-        <div class="pic"><img data-photo="cad-metal-roof" alt="CAD render of the metal roof structure"></div>
-        <div class="body"><span class="rec">RECOMMENDED</span><h3>Design 2 · Metal Roof Structure</h3>
-          <p>Galvanized steel I-beams on precast concrete footings with a 15° pitched steel roof and gutters. Rated for snow loads up to 35 psf and winds up to 120 km/h.</p>
-          <dl><dt>Cost</dt><dd>$33,854</dd><dt>Lifespan</dt><dd>50–70 years</dd><dt>Weather</dt><dd>Strong</dd><dt>Install</dt><dd>~14 weeks</dd></dl></div>
-      </article>
-      <article class="card design reveal">
-        <div class="pic"><img data-photo="cad-portable" alt="CAD model of the portable driving range cover"></div>
-        <div class="body"><h3>Design 3 · Portable Cover</h3>
-          <p>A modular steel-and-PVC unit on locking casters. It can be rolled into place as needed and could earn extra revenue as a paid rental.</p>
-          <dl><dt>Cost</dt><dd>$2,828 / unit</dd><dt>Lifespan</dt><dd>3–5 years</dd><dt>Weather</dt><dd>Low</dd><dt>Install</dt><dd>1–2 days</dd></dl></div>
-      </article>
-    </div>
-    <p class="lead reveal" style="margin-top:26px"><strong style="color:var(--ink)">Recommendation:</strong> I recommended the metal roof structure for its durability, weather resistance, and professional look. For a lower budget, I proposed the portable cover as an alternative because it installs quickly and offers high flexibility.</p>
-    <blockquote class="reveal">
-      “Throughout the project, Kagan demonstrated outstanding technical skills, problem-solving ability, and attention to detail… The resulting design was practical, innovative, and grounded in sound engineering principles… I wholeheartedly recommend Kagan.”
-      <footer>Walt McIlhone, General Manager, Shuswap Lake Golf Course</footer>
-    </blockquote>
   </div></div>
 </section>
 
-<!-- ================= VOLLEYBALL ================= -->
+<!-- ================= 04 VOLLEYBALL ================= -->
 <span class="anchor" id="volleyball"></span>
-<section class="panel bg-alt2">
-  <div class="inner"><div class="wrap">
-    <div class="eyebrow reveal">The road to the court</div>
-    <h2 class="reveal">From the end of the bench to MVP</h2>
-    <p class="lead reveal">My volleyball story isn't about talent. It's about earning a spot. I started out barely playing, and I worked my way into a starting role by asking for help, studying the game, and staying ready.</p>
-    <div class="timeline">
-      <div class="tl card reveal"><div class="when">The beginning</div><h3>On the bench of a top-20 team in Canada</h3><p>I made a club team ranked among the top 20 in the country, and I spent most matches on the bench. I didn't get much playing time, but I got a close look at how elite players train, communicate, and compete.</p></div>
-      <div class="tl card reveal"><div class="when">The grind</div><h3>Asking for feedback</h3><p>I contacted specific coaches to learn from them. I asked coaches to watch just a point or two of my games and give me quick pointers afterward. Short, honest feedback I could use the next day.</p></div>
-      <div class="tl card reveal"><div class="when">The film room</div><h3>Studying the game and myself</h3><p>I watched a lot of game film, both high-level volleyball and my own matches, to find my mistakes and figure out how to fix them before the next practice.</p></div>
-      <div class="tl card reveal"><div class="when">2025</div><h3>Earned a starting role, then MVP</h3><p>Practice turned into playing time, and playing time turned into a starting spot. In 2025 I was named MVP and received the Oakville Thunder 2024–25 Coaches' Choice Award.</p></div>
-      <div class="tl card reveal"><div class="when">2026</div><h3>Captain, Halton champion, MVP, Nationals</h3><p>As captain, I led Iroquois Ridge to the Halton Senior Boys Tier 1 championship and was named MVP. That same season I competed at Volleyball Canada Nationals in Calgary with my club team. I also worked as an assistant coach for my school team, helping design practices and analyze game film.</p></div>
-    </div>
-    <div class="grid gallery">
-      <figure class="tall reveal"><img data-photo="halton-champions" alt="Iroquois Ridge team with the Halton championship trophy"><figcaption>2026 Halton Senior Boys Tier 1 Champions: Iroquois Ridge</figcaption></figure>
-      <figure class="reveal"><img data-photo="nationals-2026" alt="Club team outside Nationals in Calgary 2026"><figcaption>Volleyball Canada Nationals, Calgary 2026</figcaption></figure>
-      <figure class="reveal"><img data-photo="coaches-choice-award" alt="Oakville Thunder Coaches' Choice Award" style="max-height:340px;object-position:50% 40%"><figcaption>Oakville Thunder 2024–25 Coaches' Choice Award</figcaption></figure>
-    </div>
-    <h3 class="reveal" style="margin-top:46px;font-size:1.5rem">What volleyball taught me</h3>
-    <div class="grid traits">
-      <div class="card reveal"><h3>Leadership</h3><p>Being captain meant setting the standard in practice, keeping the team calm in close sets, and lifting up the players who were where I used to be.</p></div>
-      <div class="card reveal"><h3>Teamwork</h3><p>Volleyball is a sport where no one can touch the ball twice in a row. Every point depends on trusting the people next to you.</p></div>
-      <div class="card reveal"><h3>Work ethic</h3><p>Nobody gave me minutes. I earned them through extra reps, film sessions, and treating every practice like a tryout.</p></div>
-      <div class="card reveal"><h3>Resilience</h3><p>Starting on the bench could have made me quit. Instead, it made me ask better questions and work harder to improve.</p></div>
+<section class="panel bg-dark">
+  <div class="inner"><div class="wrap cols">
+    <div class="side"><b>04</b>volleyball</div>
+    <div>
+      <h2 class="reveal">From the bench to MVP</h2>
+      <p class="reveal">When I made my club team, it was ranked in the top 20 in Canada, and I barely played. Most matches I watched from the bench.</p>
+      <p class="reveal">So I tried to learn as much as I could. I reached out to specific coaches and asked them to teach me. At my games, I'd ask coaches to watch just a point or two and give me a quick pointer afterward. I watched a lot of game film, of good players and of myself.</p>
+      <p class="reveal">It took a while, but practice turned into minutes, and minutes turned into a starting spot. In 2025 I was named MVP and got the Oakville Thunder Coaches' Choice Award.</p>
+      <p class="reveal">In 2026 I captained Iroquois Ridge to the Halton Sr. Boys Tier 1 championship and was named the team's 2025–26 MVP. I also went to Volleyball Canada Nationals in Calgary with my club team.</p>
+
+      <div class="photos reveal">
+        <figure><img data-photo="halton-champions" alt="Iroquois Ridge team with the Halton championship trophy"><figcaption>Halton Sr. Boys Tier 1 champions, 2026</figcaption></figure>
+        <figure><img data-photo="nationals-2026" alt="Club team outside Nationals in Calgary"><figcaption>Nationals, Calgary 2026</figcaption></figure>
+        <figure><img data-photo="coaches-choice-award" alt="Oakville Thunder Coaches' Choice Award" style="object-position:50% 40%;max-height:320px"><figcaption>Oakville Thunder Coaches' Choice, 2024–25</figcaption></figure>
+      </div>
+
+      <h3 class="reveal">What it taught me</h3>
+      <p class="reveal">Sitting on the bench taught me to stay ready and keep working when nobody's watching. Being captain taught me to look out for the guys who were where I used to be. A team is only as good as how much the players trust each other, and that's true off the court too.</p>
     </div>
   </div></div>
 </section>
 
-<!-- ================= RESUME ================= -->
+<!-- ================= 05 RESUME ================= -->
 <span class="anchor" id="resume"></span>
-<section class="panel bg-alt">
-  <div class="inner"><div class="wrap">
-    <div class="eyebrow reveal">Resume</div>
-    <h2 class="reveal">Experience &amp; education</h2>
-    <a class="btn btn-primary reveal" data-file="resume" download="Kagan-Tam-Resume.pdf" href="resume.pdf">⬇ Download full resume (PDF)</a>
-    <div class="grid resume-grid">
-      <div class="card reveal">
-        <div class="job"><h3>Materials Research &amp; Design Engineer</h3><div class="meta">Formula Nano Design Team · Waterloo, ON · Sep 2026 – Present</div>
-          <ul><li>Developed and refined mechanisms for a custom probing tool to streamline microfabrication testing.</li><li>Ran quantum chemical simulations (ORCA, DFT) to evaluate molecular compatibility, binding affinities, and reaction energetics.</li><li>Modeled reaction pathways to predict synthesis viability and guide material selection.</li></ul></div>
-        <div class="job"><h3>Research &amp; Design Engineer</h3><div class="meta">Shuswap Lake Golf Course · Blind Bay, BC · Apr 2024 – Sep 2025</div>
-          <ul><li>Led mechanical design from concept to technical sign-off through a 20-page engineering report.</li><li>Engineered a three-tier solution set (permanent, economy, and modular/portable).</li><li>Analyzed 30+ material and BOM alternatives and delivered $8K–$30K+ capital proposals.</li></ul></div>
-        <div class="job"><h3>Assistant Volleyball Coach</h3><div class="meta">Iroquois Ridge High School · Oakville, ON · Nov 2025 – Mar 2026</div>
-          <ul><li>Designed practices, game plans, and tactical drills with the head coaches.</li><li>Analyzed game footage to optimize rotations and defensive positioning.</li></ul></div>
-      </div>
-      <div class="card reveal">
-        <div class="job"><h3>University of Waterloo</h3><div class="meta">BASc, Nanotechnology Engineering · Sep 2026 – Present</div></div>
-        <div class="job"><h3>Iroquois Ridge High School</h3><div class="meta">Oakville, ON · Sep 2022 – Jun 2026</div><ul><li>Team Captain &amp; MVP, 2026 Halton championship-winning volleyball team</li></ul></div>
-        <div class="job"><h3>Visual Impairment Assistive Goggles</h3><div class="meta">Arduino · C++ · Ultrasonic sensors · Aug 2025</div>
-          <ul><li>Wearable obstacle-detection prototype with real-time audio feedback.</li><li>Embedded C++ firmware that filters sensor noise and false triggers.</li></ul></div>
-        <div class="job"><h3>Technical skills</h3>
-          <ul><li><b>Languages:</b> Python, C++ (Arduino), HTML/CSS</li><li><b>Software &amp; CAD:</b> SolidWorks, Git, ORCA</li><li><b>Hardware:</b> Microcontrollers, ultrasonic sensors</li><li><b>Practices:</b> Technical reporting, material evaluation, design iteration</li></ul></div>
+<section class="panel bg-white">
+  <div class="inner"><div class="wrap cols">
+    <div class="side"><b>05</b>resume</div>
+    <div>
+      <h2 class="reveal">Resume</h2>
+      <p class="reveal"><a data-file="resume" href="resume.pdf" download="Kagan-Tam-Resume.pdf">Download the PDF</a> or read the short version below.</p>
+      <div class="grid" style="margin-top:20px">
+        <div class="row reveal"><span class="k">sep 2026 –</span><div><h4>Materials Research &amp; Design Engineer, Formula Nano Design Team</h4><ul><li>Developed mechanisms for a custom probing tool to streamline microfabrication testing.</li><li>Ran ORCA / DFT simulations on binding affinities and reaction energetics to guide material selection.</li></ul></div></div>
+        <div class="row reveal"><span class="k">sep 2026 –</span><div><h4>BASc Nanotechnology Engineering, University of Waterloo</h4></div></div>
+        <div class="row reveal"><span class="k">nov 2025 – mar 2026</span><div><h4>Assistant Volleyball Coach, Iroquois Ridge HS</h4><ul><li>Planned practices and drills with the head coaches.</li><li>Used game footage to adjust rotations and defensive positioning.</li></ul></div></div>
+        <div class="row reveal"><span class="k">aug 2025</span><div><h4>Visual Impairment Assistive Goggles</h4><ul><li>Arduino, C++, ultrasonic sensors, real-time audio feedback.</li></ul></div></div>
+        <div class="row reveal"><span class="k">apr 2024 – sep 2025</span><div><h4>Research &amp; Design Engineer, Shuswap Lake Golf Course</h4><ul><li>Took a structural design from concept to sign-off in a 20-page report.</li><li>Three-tier solution (permanent, economy, portable) with $8K–$30K+ proposals.</li></ul></div></div>
+        <div class="row reveal"><span class="k">2022 – 2026</span><div><h4>Iroquois Ridge High School, Oakville</h4><ul><li>Team Captain and MVP, 2026 championship volleyball team.</li></ul></div></div>
       </div>
     </div>
   </div></div>
 </section>
 
-<!-- ================= CONTACT ================= -->
+<!-- ================= 06 CONTACT ================= -->
 <span class="anchor" id="contact"></span>
-<section class="panel bg-mix" id="contact-panel">
-  <div class="inner"><div class="wrap">
-    <div class="eyebrow reveal">Contact</div>
-    <h2 class="reveal">Let's build something.</h2>
-    <p class="lead reveal">I'm open to co-op opportunities, design projects, and conversations about engineering. You can also talk to me about volleyball.</p>
-    <div class="reveal" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a class="btn btn-primary" href="mailto:kagantam@gmail.com">Email me</a>
-      <a class="btn btn-ghost" href="https://linkedin.com/in/kagan-tam" target="_blank" rel="noopener">LinkedIn</a>
+<section class="panel bg-paper">
+  <div class="inner"><div class="wrap cols">
+    <div class="side"><b>06</b>contact</div>
+    <div>
+      <h2 class="reveal">Get in touch</h2>
+      <p class="reveal">I'm looking for co-op and design opportunities. Email is the easiest way to reach me.</p>
+      <div class="big-links reveal" style="margin-top:26px">
+        <a href="mailto:kagantam@gmail.com">kagantam@gmail.com</a>
+        <a href="https://www.linkedin.com/in/kagan-tam-325821357/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <footer>© <span id="yr"></span> Kagan Tam. Click the little guy in the corner to pause him.</footer>
     </div>
-    <footer class="site">© <span id="yr"></span> Kagan Tam · Click the little volleyball player in the corner to pause him</footer>
   </div></div>
 </section>
 </main>
 
-<!-- ================= CORNER MINI ME ================= -->
 <div id="mini-me" title="Click to pause / play"><svg viewBox="0 -110 130 360" data-scene="corner" aria-hidden="true"></svg></div>
 
 <script>
@@ -372,7 +337,12 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- Photos + resume (from photos.js; falls back to an images/ folder) ---------- */
 const P = window.PHOTOS || {};
-document.querySelectorAll('img[data-photo]').forEach(img => { const k = img.dataset.photo; img.src = P[k] || ('images/' + k + '.jpg'); });
+document.querySelectorAll('img[data-photo]').forEach(img => {
+  const k = img.dataset.photo;
+  if (P[k]) { img.src = P[k]; return; }
+  img.onerror = () => { img.onerror = null; img.src = 'images/' + k + '.jpg'; };   // backup location
+  img.src = k + '.jpg';                                                            // e.g. headshot.jpg next to index.html
+});
 document.querySelectorAll('a[data-file]').forEach(a => { if (P[a.dataset.file]) a.href = P[a.dataset.file]; });
 
 /* ---------- Nav background ---------- */
@@ -406,7 +376,7 @@ if ('ResizeObserver' in window) new ResizeObserver(layoutPanels).observe(documen
 layoutPanels(); onScroll();
 
 /* ---------- Smooth staggered reveals ---------- */
-document.querySelectorAll('.grid, .timeline').forEach(g => [...g.children].forEach((c, i) => c.style.setProperty('--i', i % 6)));
+document.querySelectorAll('.grid').forEach(g => [...g.children].forEach((c, i) => c.style.setProperty('--i', i % 6)));
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
@@ -423,16 +393,16 @@ const hand = (a, len = 36) => [64 + len * Math.sin(a * D), 106 + len * Math.cos(
 
 function kid({front = '', prop = ''} = {}){
   return `
-  <ellipse cx="61" cy="247" rx="24" ry="4" fill="rgba(31,58,95,.18)"/>
+  <ellipse cx="61" cy="247" rx="24" ry="4" fill="rgba(0,0,0,.18)"/>
   <path class="lb" stroke="#e1ae84" stroke-width="9" stroke-linecap="round" fill="none"/>
   <path class="lf" stroke="#ecbb92" stroke-width="9" stroke-linecap="round" fill="none"/>
-  <rect x="39" y="240" width="15" height="8" rx="4" fill="#ffffff" stroke="#c5d2e2"/><rect x="66" y="240" width="17" height="8" rx="4" fill="#ffffff" stroke="#c5d2e2"/>
+  <rect x="39" y="240" width="15" height="8" rx="4" fill="#ffffff" stroke="#c9bcb0"/><rect x="66" y="240" width="17" height="8" rx="4" fill="#ffffff" stroke="#c9bcb0"/>
   <g class="up">
     <g transform="translate(58 106)"><g class="ab"><line x1="0" y1="0" x2="0" y2="36" stroke="#e1ae84" stroke-width="7" stroke-linecap="round"/></g></g>
-    <path d="M45 148 h32 l3 20 h-16 l-3 -6 l-3 6 h-16 z" fill="#1f3a5f"/>
+    <path d="M45 148 h32 l3 20 h-16 l-3 -6 l-3 6 h-16 z" fill="#1e4c41"/>
     <rect x="45" y="100" width="32" height="54" rx="10" fill="#fff"/>
-    <path d="M45 110 q0 -10 10 -10 h12 q10 0 10 10 v5 h-32 z" fill="#c5d2e2"/>
-    <text x="61" y="141" text-anchor="middle" font-family="Plus Jakarta Sans,Arial" font-weight="700" font-size="18" fill="#1f3a5f">9</text>
+    <path d="M45 110 q0 -10 10 -10 h12 q10 0 10 10 v5 h-32 z" fill="#c9bcb0"/>
+    <text x="61" y="141" text-anchor="middle" font-family="IBM Plex Sans,Arial" font-weight="700" font-size="18" fill="#1e4c41">9</text>
     <rect x="56" y="88" width="10" height="12" fill="#e8b98f"/>
     <circle cx="61" cy="76" r="15" fill="#f0c49c"/>
     <circle cx="70" cy="82" r="3" fill="#e9a48f" opacity=".6"/><circle cx="53" cy="82" r="3" fill="#e9a48f" opacity=".6"/>
@@ -452,7 +422,7 @@ function pose(k, af, ab, c = 0){
   k.lb.setAttribute('d', `M54 ${160 + c} L${50 + c * .6} ${200 + c * .5} L48 244`);
 }
 const BALL = `<circle r="9" fill="#fff" stroke="#3b3f4f" stroke-width="1.3"/><path d="M-9 0 q9 -4 18 0" stroke="#b8873a" stroke-width="2.4" fill="none"/><path d="M0 -9 q-5 9 0 18" stroke="#b8873a" stroke-width="2.4" fill="none"/><path d="M-6 -7 q8 4 13 13" stroke="#b8873a" stroke-width="2" fill="none"/>`;
-const GROUND = `<ellipse cx="120" cy="210" rx="96" ry="10" fill="rgba(31,58,95,.12)"/>`;
+const GROUND = `<ellipse cx="120" cy="210" rx="96" ry="10" fill="rgba(0,0,0,.12)"/>`;
 
 /* Volleyball: bump the ball up, set it to yourself, repeat */
 function volley(k, ball, shadow, peaks = [-40, -95]){
@@ -474,11 +444,11 @@ const SCENES = {
   /* ---- About me: waving hello ---- */
   about(svg){
     svg.innerHTML = GROUND + `
-      <g class="bubble"><path d="M138 78 l-12 16 l24 -14z" fill="#fff" stroke="#c5d2e2" stroke-width="2"/>
-        <rect x="124" y="30" width="110" height="50" rx="18" fill="#fff" stroke="#c5d2e2" stroke-width="2"/>
+      <g class="bubble"><path d="M138 78 l-12 16 l24 -14z" fill="#fff" stroke="#c9bcb0" stroke-width="2"/>
+        <rect x="124" y="30" width="110" height="50" rx="18" fill="#fff" stroke="#c9bcb0" stroke-width="2"/>
         <rect x="134" y="74" width="20" height="6" fill="#fff"/>
-        <text x="179" y="52" text-anchor="middle" font-family="Plus Jakarta Sans,Arial" font-weight="600" font-size="15" fill="#2b2d3a">Hi! I'm</text>
-        <text x="179" y="70" text-anchor="middle" font-family="Plus Jakarta Sans,Arial" font-weight="700" font-size="16" fill="#1f3a5f">Kagan</text></g>
+        <text x="179" y="52" text-anchor="middle" font-family="IBM Plex Sans,Arial" font-weight="600" font-size="15" fill="#2b2d3a">Hi! I'm</text>
+        <text x="179" y="70" text-anchor="middle" font-family="IBM Plex Sans,Arial" font-weight="700" font-size="16" fill="#1e4c41">Kagan</text></g>
       <path class="heart" d="M0 3 C-6 -3 -10 2 0 10 C10 2 6 -3 0 3z" fill="#b8873a"/>
       <g transform="translate(40 27) scale(.72)">${kid()}</g>`;
     const k = grab(svg), b = svg.querySelector('.bubble'), h = svg.querySelector('.heart');
@@ -493,15 +463,15 @@ const SCENES = {
 
   /* ---- Engineering: stacking LEGO next to a little VEX robot ---- */
   engineering(svg){
-    const colors = ['#b8873a', '#8fa9c6', '#d9a95b', '#5b7fa6', '#2f5480', '#b8873a'];
+    const colors = ['#b8873a', '#8a8f84', '#d9a95b', '#7b8471', '#3e4336', '#b8873a'];
     let bricks = '';
     colors.forEach((c, i) => bricks += `<g class="brick" data-i="${i}"><rect x="100" y="${193 - i * 13}" width="30" height="13" rx="2" fill="${c}" stroke="rgba(0,0,0,.15)"/><rect x="105" y="${189 - i * 13}" width="7" height="4" rx="1" fill="${c}"/><rect x="118" y="${189 - i * 13}" width="7" height="4" rx="1" fill="${c}"/></g>`);
     svg.innerHTML = GROUND + bricks + `
       <g class="robot">
-        <rect x="-16" y="-26" width="32" height="18" rx="4" fill="#8fa9c6" stroke="#1f3a5f" stroke-width="2"/>
-        <rect x="-10" y="-22" width="8" height="6" rx="1" fill="#eef3f8"/>
-        <line x1="8" y1="-26" x2="8" y2="-36" stroke="#1f3a5f" stroke-width="2"/><circle class="led" cx="8" cy="-38" r="3" fill="#b8873a"/>
-        <g class="rarm"><line x1="16" y1="-18" x2="30" y2="-18" stroke="#1f3a5f" stroke-width="3" stroke-linecap="round"/></g>
+        <rect x="-16" y="-26" width="32" height="18" rx="4" fill="#8a8f84" stroke="#1e4c41" stroke-width="2"/>
+        <rect x="-10" y="-22" width="8" height="6" rx="1" fill="#f5f5f4"/>
+        <line x1="8" y1="-26" x2="8" y2="-36" stroke="#1e4c41" stroke-width="2"/><circle class="led" cx="8" cy="-38" r="3" fill="#b8873a"/>
+        <g class="rarm"><line x1="16" y1="-18" x2="30" y2="-18" stroke="#1e4c41" stroke-width="3" stroke-linecap="round"/></g>
         <g class="w1" transform="translate(-9 -6)"><circle r="6" fill="#3b3f4f"/><line x1="-5" y1="0" x2="5" y2="0" stroke="#aaa"/></g>
         <g class="w2" transform="translate(9 -6)"><circle r="6" fill="#3b3f4f"/><line x1="-5" y1="0" x2="5" y2="0" stroke="#aaa"/></g>
       </g>
@@ -554,18 +524,18 @@ const SCENES = {
       <line x1="224" y1="206" x2="224" y2="96" stroke="#3b3f4f" stroke-width="3"/>
       <rect x="208" y="100" width="16" height="34" fill="url(#mesh)" stroke="#fff" stroke-width="2"/>
       <defs><pattern id="mesh" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 0 L5 5 M5 0 L0 5" stroke="#9aa5b8" stroke-width=".6"/></pattern></defs>
-      <g transform="translate(62 52) scale(.62)"><ellipse class="bs" cx="94" cy="247" rx="7" ry="2.5" fill="rgba(31,58,95,.2)"/>${kid()}<g class="ball">${BALL}</g></g>`;
+      <g transform="translate(62 52) scale(.62)"><ellipse class="bs" cx="94" cy="247" rx="7" ry="2.5" fill="rgba(0,0,0,.2)"/>${kid()}<g class="ball">${BALL}</g></g>`;
     return volley(grab(svg), svg.querySelector('.ball'), svg.querySelector('.bs'), [-12, -62]);
   },
 
   /* ---- Resume: checking off his resume ---- */
   resume(svg){
     let rows = '';
-    [98, 109, 120, 131].forEach((y, i) => rows += `<rect x="99" y="${y - 5}" width="7" height="7" rx="1.5" fill="#fff" stroke="#c9b3bc"/><line x1="110" y1="${y - 1}" x2="${132 - i * 3}" y2="${y - 1}" stroke="#d6c9ce" stroke-width="2.5" stroke-linecap="round"/><path class="chk" d="M99 ${y - 2} l3 3 l6 -7" stroke="#1f3a5f" stroke-width="2.4" fill="none" stroke-linecap="round"/>`);
-    const paper = `<g class="paper"><rect x="93" y="76" width="46" height="62" rx="4" fill="#fff" stroke="#c5d2e2" stroke-width="2"/><rect x="99" y="82" width="26" height="5" rx="2" fill="#b8873a"/>${rows}
+    [98, 109, 120, 131].forEach((y, i) => rows += `<rect x="99" y="${y - 5}" width="7" height="7" rx="1.5" fill="#fff" stroke="#c9b3bc"/><line x1="110" y1="${y - 1}" x2="${132 - i * 3}" y2="${y - 1}" stroke="#d6c9ce" stroke-width="2.5" stroke-linecap="round"/><path class="chk" d="M99 ${y - 2} l3 3 l6 -7" stroke="#1e4c41" stroke-width="2.4" fill="none" stroke-linecap="round"/>`);
+    const paper = `<g class="paper"><rect x="93" y="76" width="46" height="62" rx="4" fill="#fff" stroke="#c9bcb0" stroke-width="2"/><rect x="99" y="82" width="26" height="5" rx="2" fill="#b8873a"/>${rows}
       <g class="star" transform="translate(136 78)"><path d="M0 -9 L2.6 -2.8 L9 -2.8 L3.8 1.2 L5.8 7.6 L0 3.8 L-5.8 7.6 L-3.8 1.2 L-9 -2.8 L-2.6 -2.8Z" fill="#d9a95b" stroke="#e0a800"/></g></g>`;
     svg.innerHTML = GROUND + `
-      <g opacity=".9"><rect x="176" y="168" width="44" height="34" rx="4" fill="#e3ebf4" stroke="#8fa9c6" stroke-width="2"/><rect x="172" y="160" width="20" height="10" rx="3" fill="#e3ebf4" stroke="#8fa9c6" stroke-width="2"/></g>
+      <g opacity=".9"><rect x="176" y="168" width="44" height="34" rx="4" fill="#ece6df" stroke="#8a8f84" stroke-width="2"/><rect x="172" y="160" width="20" height="10" rx="3" fill="#ece6df" stroke="#8a8f84" stroke-width="2"/></g>
       <g transform="translate(42 27) scale(.72)">${kid({prop:paper})}</g>`;
     const k = grab(svg), cs = [...svg.querySelectorAll('.chk')], st = svg.querySelector('.star');
     return t => {
@@ -581,11 +551,11 @@ const SCENES = {
   contact(svg){
     svg.innerHTML = GROUND + `
       <rect x="203" y="158" width="7" height="48" fill="#a0673a"/>
-      <path d="M184 160 v-18 q0 -14 14 -14 h18 q14 0 14 14 v18 z" fill="#b8873a" stroke="#1f3a5f" stroke-width="2"/>
+      <path d="M184 160 v-18 q0 -14 14 -14 h18 q14 0 14 14 v18 z" fill="#b8873a" stroke="#1e4c41" stroke-width="2"/>
       <rect x="186" y="142" width="14" height="4" rx="2" fill="#0d1b2e"/>
       <g class="flag"><line x1="0" y1="0" x2="0" y2="-20" stroke="#3b3f4f" stroke-width="2.5"/><rect x="0" y="-20" width="12" height="8" fill="#b8873a"/></g>
-      <text class="sent" x="186" y="112" font-family="Plus Jakarta Sans,Arial" font-weight="600" font-size="13" fill="#1f3a5f">sent!</text>
-      <g class="plane"><path d="M-10 -5 L11 0 L-10 5 L-5 0Z" fill="#fff" stroke="#1f3a5f" stroke-width="1.6" stroke-linejoin="round"/><path d="M-5 0 L11 0" stroke="#1f3a5f" stroke-width="1"/></g>
+      <text class="sent" x="186" y="112" font-family="IBM Plex Sans,Arial" font-weight="600" font-size="13" fill="#1e4c41">sent!</text>
+      <g class="plane"><path d="M-10 -5 L11 0 L-10 5 L-5 0Z" fill="#fff" stroke="#1e4c41" stroke-width="1.6" stroke-linejoin="round"/><path d="M-5 0 L11 0" stroke="#1e4c41" stroke-width="1"/></g>
       <g transform="translate(14 27) scale(.72)">${kid()}</g>`;
     const k = grab(svg), pl = svg.querySelector('.plane'), fl = svg.querySelector('.flag'), sent = svg.querySelector('.sent');
     const tx = 14, ty = 27, s = .72, P0 = [tx + 96.6 * s, ty + 90.8 * s], P1 = [130, 0], P2 = [192, 144];
