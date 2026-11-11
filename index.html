@@ -7,134 +7,162 @@
 <meta name="description" content="Kagan Tam: Nanotechnology Engineering student at the University of Waterloo, design engineer, and championship volleyball captain.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- All photos + the resume PDF live inside photos.js, so you only upload 2 files -->
+<script src="photos.js"></script>
 <style>
+/* ===== COLOURS: change these to re-theme the whole site ===== */
 :root{
-  --bg:#0b1220; --bg2:#111a2e; --card:#16213a; --line:#25324f;
-  --text:#e8ecf4; --muted:#9aa6bf; --accent:#f5a524; --accent2:#4cc3ff;
-  --radius:18px; --max:1100px;
+  --bg:#ffffff;                       /* main background */
+  --tint:#f3f6fa;  --tint2:#e9eff6;   /* alternating section backgrounds */
+  --soft:#d6dfea;  --soft2:#e3ebf4;   /* borders, tags */
+  --primary:#1f3a5f;                  /* navy: headings accents, buttons */
+  --accent:#b8873a;                   /* muted gold: highlights */
+  --ink:#1c2433; --muted:#5b6475; --card:#ffffff; --line:#e3e8ef;
+  --radius:22px; --max:1100px;
+  --ease:cubic-bezier(.22,1,.36,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
-h1,h2,h3{font-family:"Space Grotesk",Inter,sans-serif;line-height:1.15}
-a{color:var(--accent2)}
+body{background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Plus Jakarta Sans,Inter,sans-serif;line-height:1.15;font-weight:700;letter-spacing:-.02em}
 img{max-width:100%;display:block}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
-section{padding:96px 0;border-top:1px solid var(--line)}
 .eyebrow{color:var(--accent);font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.78rem;margin-bottom:10px}
-h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:18px}
+h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:18px}
 .lead{color:var(--muted);font-size:1.08rem;max-width:720px}
 .grid{display:grid;gap:22px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-.card h3{font-size:1.15rem;margin-bottom:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 10px 30px rgba(31,58,95,.06)}
+.card h3{font-size:1.2rem;margin-bottom:8px}
 .card p,.card li{color:var(--muted)}
-.tag{display:inline-block;padding:4px 12px;border-radius:999px;background:#1d2a48;border:1px solid var(--line);font-size:.85rem;margin:4px 6px 0 0;color:var(--text)}
-.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;text-decoration:none;transition:transform .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn-primary{background:var(--accent);color:#1a1200}
-.btn-ghost{border:1px solid rgba(255,255,255,.35);color:#fff;background:rgba(0,0,0,.25);backdrop-filter:blur(6px)}
+.tag{display:inline-block;padding:5px 13px;border-radius:999px;background:var(--soft2);font-size:.85rem;margin:4px 6px 0 0;color:#1f3a5f}
+.btn{display:inline-block;padding:12px 24px;border-radius:999px;font-weight:600;text-decoration:none;transition:transform .3s var(--ease),box-shadow .3s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(31,58,95,.25)}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-ghost{border:2px solid var(--accent);color:var(--accent);background:#fff}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s}
-nav.scrolled{background:rgba(11,18,32,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+/* ===== NAV ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,box-shadow .4s}
+nav.scrolled{background:rgba(255,255,255,.85);backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,.05)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-nav .logo{font-family:"Space Grotesk";font-weight:700;color:#fff;text-decoration:none;font-size:1.2rem}
+nav .logo{font-family:Plus Jakarta Sans;font-weight:700;color:var(--ink);text-decoration:none;font-size:1.3rem}
+nav .logo span{color:var(--primary)}
 nav ul{display:flex;gap:22px;list-style:none}
-nav ul a{color:#dfe6f3;text-decoration:none;font-size:.92rem}
-nav ul a:hover{color:var(--accent)}
+nav ul a{color:var(--ink);text-decoration:none;font-size:.92rem;font-weight:500}
+nav ul a:hover{color:var(--primary)}
 @media(max-width:760px){nav ul{display:none}}
 
-/* HERO with 360 panorama */
-#hero{position:relative;height:100vh;min-height:620px;overflow:hidden;border:0;padding:0;cursor:grab;touch-action:pan-y}
-#hero.dragging{cursor:grabbing}
-#pano{position:absolute;inset:0;width:100%;height:100%;display:block}
-.hero-inner{position:relative;z-index:2;height:100%;display:flex;align-items:center;pointer-events:none}
-.hero-inner .wrap{display:flex;align-items:center;gap:48px;width:100%}
-.hero-text{flex:1}
-.hero-text h1{font-size:clamp(2.6rem,7vw,5rem);color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.5)}
-.hero-text p{font-size:clamp(1rem,2vw,1.25rem);color:#e6ecf7;margin:14px 0 28px;max-width:560px;text-shadow:0 2px 12px rgba(0,0,0,.6)}
-.hero-text .btns{display:flex;gap:12px;flex-wrap:wrap;pointer-events:auto}
-.face{width:min(300px,36vw);aspect-ratio:3/4;border-radius:26px;overflow:hidden;border:3px solid rgba(255,255,255,.85);box-shadow:0 20px 60px rgba(0,0,0,.5);flex-shrink:0;transform:rotate(2deg)}
+/* ===== LAYERED SCROLL: each section is a card that slides over the last ===== */
+.anchor{display:block;height:0}
+.panel{position:sticky;top:0;min-height:100vh;padding:110px 0 90px;border-radius:40px 40px 0 0;
+  box-shadow:0 -24px 50px rgba(15,26,42,.10);overflow:hidden}
+.panel > .inner{transform-origin:50% 0;will-change:transform;
+  transform:scale(calc(1 - var(--cover,0) * .07)) translateY(calc(var(--cover,0) * -30px))}
+.panel::after{content:"";position:absolute;inset:0;background:#0f1a2a;opacity:calc(var(--cover,0) * .22);pointer-events:none;border-radius:inherit}
+.bg-main{background:var(--bg)} .bg-alt{background:var(--tint)} .bg-alt2{background:var(--tint2)}
+.bg-mix{background:linear-gradient(160deg,var(--tint),var(--tint2))}
+
+/* ===== HERO SANDBOX ===== */
+.hero-head{text-align:center;margin-bottom:26px}
+.hero-head h1{font-size:clamp(2.6rem,7vw,4.6rem);color:var(--ink)}
+.hero-head h1 span{color:var(--primary)}
+.hero-head p{color:var(--muted);font-size:clamp(1rem,2vw,1.15rem);max-width:640px;margin:10px auto 0}
+.hero-head .hint{display:inline-block;margin-top:14px;background:#fff;border:2px dashed var(--soft);padding:6px 16px;border-radius:999px;font-size:.9rem;color:var(--primary);font-weight:600}
+.sandbox{position:relative;background:#eef3f8 radial-gradient(#d6dfea 1.3px,transparent 1.6px) 0 0/18px 18px;
+  border:10px solid var(--primary);border-radius:32px;padding:22px 18px 10px;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:6px 10px;
+  box-shadow:inset 0 8px 0 rgba(0,0,0,.035),0 24px 60px rgba(31,58,95,.18)}
+@media(max-width:760px){.sandbox{grid-template-columns:repeat(2,1fr);border-width:8px;padding:14px 8px 6px}}
+.station{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--ink);
+  border-radius:26px;padding:4px 4px 16px;transition:transform .45s var(--ease),background .45s}
+.station:nth-child(even){transform:translateY(14px)}
+.station:hover,.station:focus-visible{transform:translateY(-8px);background:rgba(255,255,255,.6);outline:none}
+.station svg{width:100%;height:auto;overflow:visible}
+.sign{display:flex;flex-direction:column;align-items:center;background:#fff;border:2px solid var(--soft);border-radius:18px;padding:6px 16px;transition:all .35s var(--ease);text-align:center}
+.sign b{font-family:Plus Jakarta Sans;font-weight:600;font-size:1.02rem}
+.sign small{color:var(--muted);font-size:.78rem}
+.station:hover .sign{background:var(--primary);border-color:var(--primary);color:#fff}
+.station:hover .sign small{color:#c9d6e6}
+.cloud{position:absolute;background:#fff;border-radius:999px;opacity:.8;z-index:0;animation:drift linear infinite}
+.cloud:before,.cloud:after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cloud:before{width:50%;height:150%;left:15%;top:-60%} .cloud:after{width:35%;height:120%;left:50%;top:-40%}
+@keyframes drift{from{transform:translateX(-20vw)}to{transform:translateX(120vw)}}
+
+/* ===== ABOUT ===== */
+.about-top{display:grid;grid-template-columns:280px 1fr;gap:40px;align-items:center}
+@media(max-width:760px){.about-top{grid-template-columns:1fr;text-align:center}.about-top .face{margin:0 auto}}
+.face{width:260px;aspect-ratio:3/4;border-radius:30px;overflow:hidden;border:8px solid #fff;box-shadow:0 20px 50px rgba(31,58,95,.25);transform:rotate(-3deg);background:var(--soft)}
 .face img{width:100%;height:100%;object-fit:cover;object-position:50% 15%}
-.drag-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;color:#fff;font-size:.85rem;background:rgba(0,0,0,.35);padding:8px 16px;border-radius:999px;backdrop-filter:blur(6px);pointer-events:none;white-space:nowrap}
-@media(max-width:760px){
-  .hero-inner .wrap{flex-direction:column-reverse;text-align:center;gap:22px;padding-top:40px}
-  .hero-text p{margin-left:auto;margin-right:auto}
-  .hero-text .btns{justify-content:center}
-  .face{width:170px}
-}
-
-/* ABOUT / SKILLS */
 .skills{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:40px}
-.skill .ico{font-size:1.7rem;margin-bottom:8px}
+.skill .ico{font-size:1.7rem;margin-bottom:6px}
 
-/* ENGINEERING STORY */
-.story{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:40px}
-.story .step{position:relative;padding-top:56px}
-.story .num{position:absolute;top:20px;left:24px;font-family:"Space Grotesk";color:var(--accent);font-weight:700;font-size:.9rem;letter-spacing:.1em}
+/* ===== ENGINEERING ===== */
+.story{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:40px}
+.step .num{display:inline-block;background:var(--soft2);color:#1f3a5f;font-weight:700;font-size:.75rem;letter-spacing:.1em;padding:3px 10px;border-radius:999px;margin-bottom:10px}
 
-/* INTERNSHIP */
-.intern-top{grid-template-columns:1.2fr 1fr;align-items:start;margin-top:36px}
+/* ===== INTERNSHIP ===== */
+.intern-top{grid-template-columns:1.2fr 1fr;align-items:start;margin-top:30px}
 @media(max-width:860px){.intern-top{grid-template-columns:1fr}}
 .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.stat{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px}
-.stat b{display:block;font-family:"Space Grotesk";font-size:1.7rem;color:var(--accent)}
+.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px}
+.stat b{display:block;font-family:Plus Jakarta Sans;font-size:1.8rem;color:var(--primary)}
 .stat span{color:var(--muted);font-size:.88rem}
 .designs{grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:30px}
 .design{padding:0;overflow:hidden}
-.design .pic{background:#fff;height:200px;display:flex;align-items:center;justify-content:center}
-.design .pic img{max-height:200px;width:100%;object-fit:contain}
+.design .pic{background:#fff;height:200px;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}
+.design .pic img{max-height:196px;width:100%;object-fit:contain}
 .design .body{padding:20px}
-.design .rec{display:inline-block;background:var(--accent);color:#1a1200;font-weight:700;font-size:.72rem;padding:3px 10px;border-radius:999px;margin-bottom:8px;letter-spacing:.06em}
+.design .rec{display:inline-block;background:var(--accent);color:#fff;font-weight:700;font-size:.72rem;padding:3px 10px;border-radius:999px;margin-bottom:8px;letter-spacing:.06em}
 .design dl{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;margin-top:12px;font-size:.9rem}
-.design dt{color:var(--muted)} .design dd{color:var(--text)}
-blockquote{margin-top:30px;border-left:4px solid var(--accent);padding:22px 26px;background:var(--card);border-radius:0 var(--radius) var(--radius) 0;font-size:1.08rem}
+.design dt{color:var(--muted)} .design dd{color:var(--ink);font-weight:500}
+blockquote{margin-top:30px;border-left:5px solid var(--primary);padding:22px 26px;background:#fff;border-radius:0 var(--radius) var(--radius) 0;font-size:1.08rem}
 blockquote footer{margin-top:12px;color:var(--muted);font-size:.92rem}
 
-/* VOLLEYBALL */
-.timeline{position:relative;margin-top:44px;padding-left:34px}
-.timeline:before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;background:linear-gradient(var(--line),var(--accent))}
-.tl{position:relative;margin-bottom:28px}
-.tl:before{content:"";position:absolute;left:-31px;top:24px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
-.tl .when{color:var(--accent);font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase}
+/* ===== VOLLEYBALL ===== */
+.timeline{position:relative;margin-top:40px;padding-left:34px}
+.timeline:before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:4px;border-radius:4px;background:linear-gradient(var(--soft),var(--accent))}
+.tl{position:relative;margin-bottom:22px}
+.tl:before{content:"";position:absolute;left:-32px;top:26px;width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--primary)}
+.tl .when{color:var(--accent);font-weight:700;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
 .gallery{grid-template-columns:2fr 1fr;margin-top:40px}
-.gallery figure{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:var(--card)}
-.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figure{border-radius:var(--radius);overflow:hidden;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.gallery img{width:100%;flex:1;object-fit:cover;min-height:0}
 .gallery figcaption{padding:10px 14px;color:var(--muted);font-size:.88rem}
 .gallery .tall{grid-row:span 2}
 @media(max-width:760px){.gallery{grid-template-columns:1fr}.gallery .tall{grid-row:auto}}
-.traits{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:30px}
+.traits{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:24px}
 
-/* RESUME */
-.resume-grid{grid-template-columns:1fr 1fr;margin-top:34px}
+/* ===== RESUME ===== */
+.resume-grid{grid-template-columns:1fr 1fr;margin-top:30px}
 @media(max-width:860px){.resume-grid{grid-template-columns:1fr}}
 .job{margin-bottom:22px}
-.job h3{font-size:1.05rem}
-.job .meta{color:var(--accent);font-size:.85rem;margin-bottom:6px}
+.job h3{font-size:1.08rem}
+.job .meta{color:var(--primary);font-size:.85rem;margin-bottom:6px;font-weight:500}
 .job ul{padding-left:18px}
 .job li{color:var(--muted);margin-bottom:4px}
 
-/* CONTACT */
-#contact{text-align:center}
-#contact .lead{margin:0 auto 26px}
-footer.site{padding:30px 0 120px;color:var(--muted);text-align:center;font-size:.85rem;border-top:1px solid var(--line)}
+/* ===== CONTACT ===== */
+#contact-panel{text-align:center;display:flex;flex-direction:column;justify-content:center}
+#contact-panel .lead{margin:0 auto 26px}
+footer.site{margin-top:80px;color:var(--muted);font-size:.85rem}
 
-/* MINI ME volleyball player (bottom-right corner) */
-#mini-me{position:fixed;right:14px;bottom:0;width:165px;height:320px;z-index:40;cursor:pointer}
+/* ===== CORNER MINI ME ===== */
+#mini-me{position:fixed;right:14px;bottom:0;width:150px;height:300px;z-index:90;cursor:pointer}
 #mini-me svg{width:100%;height:100%;overflow:visible}
-@media(max-width:600px){#mini-me{width:105px;height:205px;right:4px}}
+@media(max-width:600px){#mini-me{width:95px;height:190px;right:4px}}
 
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+/* ===== SMOOTH REVEALS ===== */
+.reveal{opacity:0;transform:translateY(40px) scale(.97);filter:blur(6px);
+  transition:opacity 1.1s var(--ease),transform 1.1s var(--ease),filter 1.1s var(--ease);transition-delay:calc(var(--i,0) * 90ms)}
+.reveal.in{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;filter:none;transition:none}.panel>.inner{transform:none}.cloud{display:none}}
 </style>
 </head>
 <body>
 
 <nav id="nav">
   <div class="wrap">
-    <a class="logo" href="#hero">Kagan Tam</a>
+    <a class="logo" href="#home">Kagan<span>.</span></a>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#engineering">Engineering</a></li>
@@ -146,32 +174,46 @@ footer.site{padding:30px 0 120px;color:var(--muted);text-align:center;font-size:
   </div>
 </nav>
 
-<!-- ============ HERO: drag the background 360° ============ -->
-<header id="hero">
-  <canvas id="pano" aria-hidden="true"></canvas>
-  <div class="hero-inner">
+<main>
+<!-- ================= HERO: the mini-me sandbox ================= -->
+<span class="anchor" id="home"></span>
+<section class="panel" id="home-panel" style="background:linear-gradient(180deg,#e6edf5 0%,#f3f6fa 45%,#ffffff 100%);border-radius:0;box-shadow:none;padding-top:90px">
+  <div class="cloud" style="width:120px;height:34px;top:120px;animation-duration:70s;animation-delay:-20s"></div>
+  <div class="cloud" style="width:90px;height:26px;top:220px;animation-duration:95s;animation-delay:-60s"></div>
+  <div class="cloud" style="width:150px;height:40px;top:70px;animation-duration:120s;animation-delay:-5s"></div>
+  <div class="inner" style="position:relative;z-index:1">
     <div class="wrap">
-      <div class="hero-text">
-        <h1>Kagan Tam</h1>
-        <p>Nanotechnology Engineering student at the University of Waterloo, design engineer, and championship volleyball captain. I build things, and I work hard to get better at them.</p>
-        <div class="btns">
-          <a class="btn btn-primary" href="#resume">View my resume</a>
-          <a class="btn btn-ghost" href="#contact">Get in touch</a>
-        </div>
+      <div class="hero-head">
+        <h1>Hi, I'm <span>Kagan Tam</span></h1>
+        <p>Nanotechnology Engineering student at the University of Waterloo, design engineer, and championship volleyball captain.</p>
+        <div class="hint">👆 Click a mini me to explore that part of my story</div>
       </div>
-      <div class="face"><img src="images/headshot.jpg" alt="Kagan Tam holding the Halton championship trophy"></div>
+
+      <!-- Each station: data-scene picks the animation, href picks where it takes you -->
+      <div class="sandbox">
+        <a class="station" href="#about"><svg data-scene="about" viewBox="0 0 240 225"></svg><span class="sign"><b>👋 About me</b><small>Who I am</small></span></a>
+        <a class="station" href="#engineering"><svg data-scene="engineering" viewBox="0 0 240 225"></svg><span class="sign"><b>🧱 Engineering</b><small>LEGO → VEX → Waterloo</small></span></a>
+        <a class="station" href="#internship"><svg data-scene="internship" viewBox="0 0 240 225"></svg><span class="sign"><b>🏗️ Internship</b><small>Building a range cover</small></span></a>
+        <a class="station" href="#volleyball"><svg data-scene="volleyball" viewBox="0 0 240 225"></svg><span class="sign"><b>🏐 Volleyball</b><small>Bench → MVP</small></span></a>
+        <a class="station" href="#resume"><svg data-scene="resume" viewBox="0 0 240 225"></svg><span class="sign"><b>📄 Resume</b><small>Experience & skills</small></span></a>
+        <a class="station" href="#contact"><svg data-scene="contact" viewBox="0 0 240 225"></svg><span class="sign"><b>✉️ Contact</b><small>Send me a message</small></span></a>
+      </div>
     </div>
   </div>
-  <div class="drag-hint">⟲ Drag to spin the view 360°</div>
-</header>
+</section>
 
-<!-- ============ ABOUT / LIFE SKILLS ============ -->
-<section id="about">
-  <div class="wrap">
-    <div class="eyebrow">About me</div>
-    <h2>Engineer on paper. Teammate everywhere else.</h2>
-    <p class="lead">I'm a first-year Nanotechnology Engineering student at the University of Waterloo. Most of what I know about engineering came from building things, and most of what I know about people came from volleyball. Both taught me the same thing: you get better by asking for feedback, studying what went wrong, and putting in the reps.</p>
-
+<!-- ================= ABOUT ================= -->
+<span class="anchor" id="about"></span>
+<section class="panel bg-main">
+  <div class="inner"><div class="wrap">
+    <div class="about-top">
+      <div class="face reveal"><img data-photo="headshot" alt="Kagan Tam holding the Halton championship trophy"></div>
+      <div class="reveal">
+        <div class="eyebrow">About me</div>
+        <h2>Engineer on paper. Teammate everywhere else.</h2>
+        <p class="lead">I'm a first-year Nanotechnology Engineering student at the University of Waterloo. Most of what I know about engineering came from building things, and most of what I know about people came from volleyball. Both taught me the same thing: you get better by asking for feedback, studying what went wrong, and putting in the reps.</p>
+      </div>
+    </div>
     <div class="grid skills">
       <div class="card skill reveal"><div class="ico">🧭</div><h3>Leadership</h3><p>Team captain who led my school to a 2026 Halton championship, and an assistant coach who helped run practices and game plans.</p></div>
       <div class="card skill reveal"><div class="ico">🤝</div><h3>Teamwork</h3><p>I've been a bench player and a starter, so I know how to help a team from either spot.</p></div>
@@ -180,92 +222,81 @@ footer.site{padding:30px 0 120px;color:var(--muted);text-align:center;font-size:
       <div class="card skill reveal"><div class="ico">🗣️</div><h3>Communication</h3><p>I wrote a 20-page engineering report and presented the findings to a client's general manager.</p></div>
       <div class="card skill reveal"><div class="ico">🛠️</div><h3>Problem solving</h3><p>I compare trade-offs on cost, durability, and timeline to choose the option that fits the situation.</p></div>
     </div>
-
-    <div style="margin-top:34px">
+    <div class="reveal" style="margin-top:30px">
       <span class="tag">SolidWorks</span><span class="tag">Python</span><span class="tag">C++ (Arduino)</span><span class="tag">HTML / CSS</span><span class="tag">Git</span><span class="tag">ORCA / DFT simulation</span><span class="tag">Microcontrollers</span><span class="tag">Ultrasonic sensors</span><span class="tag">Technical reporting</span><span class="tag">Material evaluation</span><span class="tag">Design iteration</span>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- ============ ENGINEERING ORIGIN ============ -->
-<section id="engineering">
-  <div class="wrap">
-    <div class="eyebrow">How it started</div>
-    <h2>From LEGO bricks to nanoscale materials</h2>
-    <p class="lead">I've wanted to be an engineer since I was a kid. Building things showed me how much I like turning an idea into something that actually works.</p>
-
+<!-- ================= ENGINEERING ================= -->
+<span class="anchor" id="engineering"></span>
+<section class="panel bg-alt2">
+  <div class="inner"><div class="wrap">
+    <div class="eyebrow reveal">How it started</div>
+    <h2 class="reveal">From LEGO bricks to nanoscale materials</h2>
+    <p class="lead reveal">I've wanted to be an engineer since I was a kid. Building things showed me how much I like turning an idea into something that actually works.</p>
     <div class="grid story">
       <div class="card step reveal"><span class="num">01 · LEGO</span><h3>It started with LEGO</h3><p>I spent hours building with LEGO, first following the instructions and then ignoring them. Figuring out why a structure held up or fell apart was the first engineering I ever did.</p></div>
       <div class="card step reveal"><span class="num">02 · VEX ROBOTICS</span><h3>Competitive robotics</h3><p>I joined a VEX Robotics team that won multiple awards and placed <strong>top 8 at Provincials in the Skills component</strong>. Designing, building, and driving a robot under competition pressure taught me to iterate quickly and work as a team.</p></div>
       <div class="card step reveal"><span class="num">03 · PROTOTYPES</span><h3>Assistive goggles</h3><p>I built a wearable navigation prototype for people with visual impairments. It uses an Arduino and ultrasonic sensors, with C++ firmware that turns distance readings into real-time audio cues.</p></div>
       <div class="card step reveal"><span class="num">04 · WATERLOO</span><h3>Formula Nano Design Team</h3><p>As a Materials Research &amp; Design Engineer, I design mechanisms for a custom probing tool and run quantum chemical simulations (ORCA, DFT) to test molecular compatibility for nanoscale fabrication.</p></div>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- ============ INTERNSHIP ============ -->
-<section id="internship">
-  <div class="wrap">
-    <div class="eyebrow">Engineering internship · Shuswap Lake Golf Course, Blind Bay BC</div>
-    <h2>Designing a year-round driving range cover</h2>
-
+<!-- ================= INTERNSHIP ================= -->
+<span class="anchor" id="internship"></span>
+<section class="panel bg-alt">
+  <div class="inner"><div class="wrap">
+    <div class="eyebrow reveal">Engineering internship · Shuswap Lake Golf Course, Blind Bay BC</div>
+    <h2 class="reveal">Designing a year-round driving range cover</h2>
     <div class="grid intern-top">
-      <div>
+      <div class="reveal">
         <p class="lead">The Shuswap Lake Golf Course asked for a covered structure over its 90 ft × 18 ft driving range. Rain and snow made the range unusable for part of the year, and the goal was to extend the season for members. As Research &amp; Design Engineer, I took the project from first concept to final technical sign-off.</p>
         <p class="lead" style="margin-top:14px">The client needed five things: a design concept, a materials choice with reasons, a construction timeline, a budget, and the best time of year to build without disrupting golfers. I delivered a 20-page engineering report with three SolidWorks designs and 5+ iterations each, then presented it to the general manager and updated the final report with the client's feedback.</p>
       </div>
-      <div class="stats">
+      <div class="stats reveal">
         <div class="stat"><b>3</b><span>distinct CAD designs</span></div>
         <div class="stat"><b>30+</b><span>material &amp; BOM alternatives analyzed</span></div>
         <div class="stat"><b>20</b><span>page engineering report, 26 sources</span></div>
         <div class="stat"><b>$8K–$34K</b><span>capital proposals for stakeholders</span></div>
       </div>
     </div>
-
     <div class="grid designs">
       <article class="card design reveal">
-        <div class="pic"><img src="images/cad-tensile.jpg" alt="CAD model of the tensile structure"></div>
-        <div class="body">
-          <h3>Design 1 · Tensile Structure</h3>
+        <div class="pic"><img data-photo="cad-tensile" alt="CAD model of the tensile structure"></div>
+        <div class="body"><h3>Design 1 · Tensile Structure</h3>
           <p>A galvanized steel frame with a heavy-duty, UV-resistant PVC tarp that can be replaced. Quick to install and affordable.</p>
-          <dl><dt>Cost</dt><dd>$8,786</dd><dt>Lifespan</dt><dd>5–10 years</dd><dt>Weather</dt><dd>Decent</dd><dt>Install</dt><dd>4–7 days</dd></dl>
-        </div>
+          <dl><dt>Cost</dt><dd>$8,786</dd><dt>Lifespan</dt><dd>5–10 years</dd><dt>Weather</dt><dd>Decent</dd><dt>Install</dt><dd>4–7 days</dd></dl></div>
       </article>
       <article class="card design reveal">
-        <div class="pic"><img src="images/cad-metal-roof.jpg" alt="CAD render of the metal roof structure"></div>
-        <div class="body">
-          <span class="rec">RECOMMENDED</span>
-          <h3>Design 2 · Metal Roof Structure</h3>
+        <div class="pic"><img data-photo="cad-metal-roof" alt="CAD render of the metal roof structure"></div>
+        <div class="body"><span class="rec">RECOMMENDED</span><h3>Design 2 · Metal Roof Structure</h3>
           <p>Galvanized steel I-beams on precast concrete footings with a 15° pitched steel roof and gutters. Rated for snow loads up to 35 psf and winds up to 120 km/h.</p>
-          <dl><dt>Cost</dt><dd>$33,854</dd><dt>Lifespan</dt><dd>50–70 years</dd><dt>Weather</dt><dd>Strong</dd><dt>Install</dt><dd>~14 weeks</dd></dl>
-        </div>
+          <dl><dt>Cost</dt><dd>$33,854</dd><dt>Lifespan</dt><dd>50–70 years</dd><dt>Weather</dt><dd>Strong</dd><dt>Install</dt><dd>~14 weeks</dd></dl></div>
       </article>
       <article class="card design reveal">
-        <div class="pic"><img src="images/cad-portable.jpg" alt="CAD model of the portable driving range cover"></div>
-        <div class="body">
-          <h3>Design 3 · Portable Cover</h3>
+        <div class="pic"><img data-photo="cad-portable" alt="CAD model of the portable driving range cover"></div>
+        <div class="body"><h3>Design 3 · Portable Cover</h3>
           <p>A modular steel-and-PVC unit on locking casters. It can be rolled into place as needed and could earn extra revenue as a paid rental.</p>
-          <dl><dt>Cost</dt><dd>$2,828 / unit</dd><dt>Lifespan</dt><dd>3–5 years</dd><dt>Weather</dt><dd>Low</dd><dt>Install</dt><dd>1–2 days</dd></dl>
-        </div>
+          <dl><dt>Cost</dt><dd>$2,828 / unit</dd><dt>Lifespan</dt><dd>3–5 years</dd><dt>Weather</dt><dd>Low</dd><dt>Install</dt><dd>1–2 days</dd></dl></div>
       </article>
     </div>
-
-    <p class="lead" style="margin-top:26px"><strong style="color:var(--text)">Recommendation:</strong> I recommended the metal roof structure for its durability, weather resistance, and professional look. For a lower budget, I proposed the portable cover as an alternative because it installs quickly and offers high flexibility.</p>
-
+    <p class="lead reveal" style="margin-top:26px"><strong style="color:var(--ink)">Recommendation:</strong> I recommended the metal roof structure for its durability, weather resistance, and professional look. For a lower budget, I proposed the portable cover as an alternative because it installs quickly and offers high flexibility.</p>
     <blockquote class="reveal">
       “Throughout the project, Kagan demonstrated outstanding technical skills, problem-solving ability, and attention to detail… The resulting design was practical, innovative, and grounded in sound engineering principles… I wholeheartedly recommend Kagan.”
       <footer>Walt McIlhone, General Manager, Shuswap Lake Golf Course</footer>
     </blockquote>
-  </div>
+  </div></div>
 </section>
 
-<!-- ============ VOLLEYBALL ============ -->
-<section id="volleyball">
-  <div class="wrap">
-    <div class="eyebrow">The road to the court</div>
-    <h2>From the end of the bench to MVP</h2>
-    <p class="lead">My volleyball story isn't about talent. It's about earning a spot. I started out barely playing, and I worked my way into a starting role by asking for help, studying the game, and staying ready.</p>
-
+<!-- ================= VOLLEYBALL ================= -->
+<span class="anchor" id="volleyball"></span>
+<section class="panel bg-alt2">
+  <div class="inner"><div class="wrap">
+    <div class="eyebrow reveal">The road to the court</div>
+    <h2 class="reveal">From the end of the bench to MVP</h2>
+    <p class="lead reveal">My volleyball story isn't about talent. It's about earning a spot. I started out barely playing, and I worked my way into a starting role by asking for help, studying the game, and staying ready.</p>
     <div class="timeline">
       <div class="tl card reveal"><div class="when">The beginning</div><h3>On the bench of a top-20 team in Canada</h3><p>I made a club team ranked among the top 20 in the country, and I spent most matches on the bench. I didn't get much playing time, but I got a close look at how elite players train, communicate, and compete.</p></div>
       <div class="tl card reveal"><div class="when">The grind</div><h3>Asking for feedback</h3><p>I contacted specific coaches to learn from them. I asked coaches to watch just a point or two of my games and give me quick pointers afterward. Short, honest feedback I could use the next day.</p></div>
@@ -273,32 +304,30 @@ footer.site{padding:30px 0 120px;color:var(--muted);text-align:center;font-size:
       <div class="tl card reveal"><div class="when">2025</div><h3>Earned a starting role, then MVP</h3><p>Practice turned into playing time, and playing time turned into a starting spot. In 2025 I was named MVP and received the Oakville Thunder 2024–25 Coaches' Choice Award.</p></div>
       <div class="tl card reveal"><div class="when">2026</div><h3>Captain, Halton champion, MVP, Nationals</h3><p>As captain, I led Iroquois Ridge to the Halton Senior Boys Tier 1 championship and was named MVP. That same season I competed at Volleyball Canada Nationals in Calgary with my club team. I also worked as an assistant coach for my school team, helping design practices and analyze game film.</p></div>
     </div>
-
     <div class="grid gallery">
-      <figure class="tall reveal"><img src="images/halton-champions.jpg" alt="Iroquois Ridge team with the Halton championship trophy"><figcaption>2026 Halton Senior Boys Tier 1 Champions: Iroquois Ridge</figcaption></figure>
-      <figure class="reveal"><img src="images/nationals-2026.jpg" alt="Club team outside Nationals in Calgary 2026"><figcaption>Volleyball Canada Nationals, Calgary 2026</figcaption></figure>
-      <figure class="reveal"><img src="images/coaches-choice-award.jpg" alt="Oakville Thunder Coaches' Choice Award" style="max-height:340px;object-position:50% 40%"><figcaption>Oakville Thunder 2024–25 Coaches' Choice Award</figcaption></figure>
+      <figure class="tall reveal"><img data-photo="halton-champions" alt="Iroquois Ridge team with the Halton championship trophy"><figcaption>2026 Halton Senior Boys Tier 1 Champions: Iroquois Ridge</figcaption></figure>
+      <figure class="reveal"><img data-photo="nationals-2026" alt="Club team outside Nationals in Calgary 2026"><figcaption>Volleyball Canada Nationals, Calgary 2026</figcaption></figure>
+      <figure class="reveal"><img data-photo="coaches-choice-award" alt="Oakville Thunder Coaches' Choice Award" style="max-height:340px;object-position:50% 40%"><figcaption>Oakville Thunder 2024–25 Coaches' Choice Award</figcaption></figure>
     </div>
-
-    <h3 style="margin-top:50px;font-size:1.4rem">What volleyball taught me</h3>
+    <h3 class="reveal" style="margin-top:46px;font-size:1.5rem">What volleyball taught me</h3>
     <div class="grid traits">
       <div class="card reveal"><h3>Leadership</h3><p>Being captain meant setting the standard in practice, keeping the team calm in close sets, and lifting up the players who were where I used to be.</p></div>
       <div class="card reveal"><h3>Teamwork</h3><p>Volleyball is a sport where no one can touch the ball twice in a row. Every point depends on trusting the people next to you.</p></div>
       <div class="card reveal"><h3>Work ethic</h3><p>Nobody gave me minutes. I earned them through extra reps, film sessions, and treating every practice like a tryout.</p></div>
       <div class="card reveal"><h3>Resilience</h3><p>Starting on the bench could have made me quit. Instead, it made me ask better questions and work harder to improve.</p></div>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- ============ RESUME ============ -->
-<section id="resume">
-  <div class="wrap">
-    <div class="eyebrow">Resume</div>
-    <h2>Experience &amp; education</h2>
-    <a class="btn btn-primary" href="resume.pdf" target="_blank" rel="noopener">⬇ Download full resume (PDF)</a>
-
+<!-- ================= RESUME ================= -->
+<span class="anchor" id="resume"></span>
+<section class="panel bg-alt">
+  <div class="inner"><div class="wrap">
+    <div class="eyebrow reveal">Resume</div>
+    <h2 class="reveal">Experience &amp; education</h2>
+    <a class="btn btn-primary reveal" data-file="resume" download="Kagan-Tam-Resume.pdf" href="resume.pdf">⬇ Download full resume (PDF)</a>
     <div class="grid resume-grid">
-      <div class="card">
+      <div class="card reveal">
         <div class="job"><h3>Materials Research &amp; Design Engineer</h3><div class="meta">Formula Nano Design Team · Waterloo, ON · Sep 2026 – Present</div>
           <ul><li>Developed and refined mechanisms for a custom probing tool to streamline microfabrication testing.</li><li>Ran quantum chemical simulations (ORCA, DFT) to evaluate molecular compatibility, binding affinities, and reaction energetics.</li><li>Modeled reaction pathways to predict synthesis viability and guide material selection.</li></ul></div>
         <div class="job"><h3>Research &amp; Design Engineer</h3><div class="meta">Shuswap Lake Golf Course · Blind Bay, BC · Apr 2024 – Sep 2025</div>
@@ -306,7 +335,7 @@ footer.site{padding:30px 0 120px;color:var(--muted);text-align:center;font-size:
         <div class="job"><h3>Assistant Volleyball Coach</h3><div class="meta">Iroquois Ridge High School · Oakville, ON · Nov 2025 – Mar 2026</div>
           <ul><li>Designed practices, game plans, and tactical drills with the head coaches.</li><li>Analyzed game footage to optimize rotations and defensive positioning.</li></ul></div>
       </div>
-      <div class="card">
+      <div class="card reveal">
         <div class="job"><h3>University of Waterloo</h3><div class="meta">BASc, Nanotechnology Engineering · Sep 2026 – Present</div></div>
         <div class="job"><h3>Iroquois Ridge High School</h3><div class="meta">Oakville, ON · Sep 2022 – Jun 2026</div><ul><li>Team Captain &amp; MVP, 2026 Halton championship-winning volleyball team</li></ul></div>
         <div class="job"><h3>Visual Impairment Assistive Goggles</h3><div class="meta">Arduino · C++ · Ultrasonic sensors · Aug 2025</div>
@@ -315,229 +344,294 @@ footer.site{padding:30px 0 120px;color:var(--muted);text-align:center;font-size:
           <ul><li><b>Languages:</b> Python, C++ (Arduino), HTML/CSS</li><li><b>Software &amp; CAD:</b> SolidWorks, Git, ORCA</li><li><b>Hardware:</b> Microcontrollers, ultrasonic sensors</li><li><b>Practices:</b> Technical reporting, material evaluation, design iteration</li></ul></div>
       </div>
     </div>
-  </div>
+  </div></div>
 </section>
 
-<!-- ============ CONTACT ============ -->
-<section id="contact">
-  <div class="wrap">
-    <div class="eyebrow">Contact</div>
-    <h2>Let's build something.</h2>
-    <p class="lead">I'm open to co-op opportunities, design projects, and conversations about engineering. You can also talk to me about volleyball.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+<!-- ================= CONTACT ================= -->
+<span class="anchor" id="contact"></span>
+<section class="panel bg-mix" id="contact-panel">
+  <div class="inner"><div class="wrap">
+    <div class="eyebrow reveal">Contact</div>
+    <h2 class="reveal">Let's build something.</h2>
+    <p class="lead reveal">I'm open to co-op opportunities, design projects, and conversations about engineering. You can also talk to me about volleyball.</p>
+    <div class="reveal" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
       <a class="btn btn-primary" href="mailto:kagantam@gmail.com">Email me</a>
       <a class="btn btn-ghost" href="https://linkedin.com/in/kagan-tam" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-  </div>
+    <footer class="site">© <span id="yr"></span> Kagan Tam · Click the little volleyball player in the corner to pause him</footer>
+  </div></div>
 </section>
+</main>
 
-<footer class="site">© <span id="yr"></span> Kagan Tam · Click the little volleyball player to pause him</footer>
-
-<!-- ============ MINI ME (bottom-right corner) ============ -->
-<div id="mini-me" title="Click to pause / play">
-  <svg viewBox="0 -110 130 360" aria-hidden="true">
-    <ellipse cx="60" cy="246" rx="26" ry="4" fill="rgba(0,0,0,.35)"/>
-    <ellipse id="ball-shadow" cx="80" cy="246" rx="7" ry="2" fill="rgba(0,0,0,.3)"/>
-    <g id="body">
-      <!-- legs -->
-      <path id="leg-back"  d="M54 160 L50 200 L48 244" stroke="#1d2b4f" stroke-width="9" stroke-linecap="round" fill="none"/>
-      <path id="leg-front" d="M66 160 L70 200 L72 244" stroke="#24345e" stroke-width="9" stroke-linecap="round" fill="none"/>
-      <rect x="40" y="240" width="14" height="7" rx="3" fill="#fff"/><rect x="66" y="240" width="16" height="7" rx="3" fill="#fff"/>
-      <g id="upper">
-        <!-- shorts -->
-        <path d="M46 150 h30 l3 18 h-15 l-3 -6 l-3 6 h-15 z" fill="#14213d"/>
-        <!-- torso / jersey -->
-        <rect x="45" y="100" width="32" height="54" rx="10" fill="#f4f6fb"/>
-        <path d="M45 110 q0 -10 10 -10 h12 q10 0 10 10 v6 h-32 z" fill="#14213d"/>
-        <text x="61" y="140" text-anchor="middle" font-family="Space Grotesk,Arial" font-weight="700" font-size="17" fill="#14213d">9</text>
-        <!-- head -->
-        <rect x="56" y="88" width="10" height="12" fill="#e8b98f"/>
-        <circle cx="61" cy="76" r="15" fill="#f0c49c"/>
-        <path d="M46 74 q0 -18 16 -18 q15 0 16 14 q-6 -6 -12 -5 q-4 5 -12 3 q-4 3 -8 6 z" fill="#1b1b1f"/>
-        <circle cx="67" cy="78" r="1.7" fill="#222"/><circle cx="58" cy="78" r="1.7" fill="#222"/>
-        <path d="M58 85 q4 3 8 0" stroke="#7a3d2b" stroke-width="1.6" fill="none" stroke-linecap="round"/>
-        <!-- arms (rotate around shoulder) -->
-        <g id="arm-back"><line x1="58" y1="106" x2="58" y2="142" stroke="#e1ae84" stroke-width="7" stroke-linecap="round"/></g>
-        <g id="arm-front"><line x1="64" y1="106" x2="64" y2="142" stroke="#f0c49c" stroke-width="7" stroke-linecap="round"/></g>
-      </g>
-    </g>
-    <!-- the ball -->
-    <g id="ball">
-      <circle r="9" fill="#ffd34d" stroke="#14213d" stroke-width="1.4"/>
-      <path d="M-9 0 q9 -4 18 0 M0 -9 q-5 9 0 18 M-6 -7 q8 4 13 13" stroke="#2f6fd6" stroke-width="1.6" fill="none"/>
-    </g>
-  </svg>
-</div>
+<!-- ================= CORNER MINI ME ================= -->
+<div id="mini-me" title="Click to pause / play"><svg viewBox="0 -110 130 360" data-scene="corner" aria-hidden="true"></svg></div>
 
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- Nav background on scroll + reveal animations ---------- */
+/* ---------- Photos + resume (from photos.js; falls back to an images/ folder) ---------- */
+const P = window.PHOTOS || {};
+document.querySelectorAll('img[data-photo]').forEach(img => { const k = img.dataset.photo; img.src = P[k] || ('images/' + k + '.jpg'); });
+document.querySelectorAll('a[data-file]').forEach(a => { if (P[a.dataset.file]) a.href = P[a.dataset.file]; });
+
+/* ---------- Nav background ---------- */
 const nav = document.getElementById('nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
-const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.15});
+
+/* ---------- Layered scrolling: each panel sticks, the next one slides over it ---------- */
+const panels = [...document.querySelectorAll('.panel')];
+function layoutPanels(){
+  panels.forEach((p, i) => {
+    p.style.zIndex = i + 1;
+    // tall sections stick only once you've scrolled to their bottom
+    p.style.top = Math.min(0, innerHeight - p.offsetHeight) + 'px';
+  });
+}
+let ticking = false;
+function onScroll(){
+  nav.classList.toggle('scrolled', scrollY > 40);
+  if (reduceMotion) return;
+  panels.forEach((p, i) => {
+    const next = panels[i + 1]; if (!next) return;
+    const top = next.getBoundingClientRect().top;
+    const cover = Math.min(1, Math.max(0, 1 - top / innerHeight));
+    p.style.setProperty('--cover', cover.toFixed(3));
+  });
+  ticking = false;
+}
+addEventListener('scroll', () => { if (!ticking){ ticking = true; requestAnimationFrame(onScroll); } }, {passive:true});
+addEventListener('resize', () => { layoutPanels(); onScroll(); });
+addEventListener('load', () => { layoutPanels(); onScroll(); });
+if ('ResizeObserver' in window) new ResizeObserver(layoutPanels).observe(document.querySelector('main'));
+layoutPanels(); onScroll();
+
+/* ---------- Smooth staggered reveals ---------- */
+document.querySelectorAll('.grid, .timeline').forEach(g => [...g.children].forEach((c, i) => c.style.setProperty('--i', i % 6)));
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 /* ================================================================
-   360° PANORAMA HERO
-   An original scene (sunset sky, mountains, lake) is drawn once on
-   an offscreen canvas that wraps seamlessly; dragging spins it.
-   To use your OWN 360° photo instead, put it in /images and set:
-   PANORAMA_IMAGE = "images/your-panorama.jpg"
-   (works best with a wide, 2:1 "equirectangular" panorama photo)
+   MINI ME CHARACTERS
+   Each scene draws a little Kagan and animates him every frame.
+   Arm angles: 0 = hanging down, 90 = straight forward, 180 = straight up.
    ================================================================ */
-const PANORAMA_IMAGE = "";
+const D = Math.PI / 180;
+const lerp = (a, b, t) => a + (b - a) * t;
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+const hand = (a, len = 36) => [64 + len * Math.sin(a * D), 106 + len * Math.cos(a * D)];
 
-const hero = document.getElementById('hero');
-const cv = document.getElementById('pano');
-const ctx = cv.getContext('2d');
-let pano, panoW, offset = 0, velocity = reduceMotion ? 0 : -0.25, dragging = false, lastX = 0;
+function kid({front = '', prop = ''} = {}){
+  return `
+  <ellipse cx="61" cy="247" rx="24" ry="4" fill="rgba(31,58,95,.18)"/>
+  <path class="lb" stroke="#e1ae84" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <path class="lf" stroke="#ecbb92" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <rect x="39" y="240" width="15" height="8" rx="4" fill="#ffffff" stroke="#c5d2e2"/><rect x="66" y="240" width="17" height="8" rx="4" fill="#ffffff" stroke="#c5d2e2"/>
+  <g class="up">
+    <g transform="translate(58 106)"><g class="ab"><line x1="0" y1="0" x2="0" y2="36" stroke="#e1ae84" stroke-width="7" stroke-linecap="round"/></g></g>
+    <path d="M45 148 h32 l3 20 h-16 l-3 -6 l-3 6 h-16 z" fill="#1f3a5f"/>
+    <rect x="45" y="100" width="32" height="54" rx="10" fill="#fff"/>
+    <path d="M45 110 q0 -10 10 -10 h12 q10 0 10 10 v5 h-32 z" fill="#c5d2e2"/>
+    <text x="61" y="141" text-anchor="middle" font-family="Plus Jakarta Sans,Arial" font-weight="700" font-size="18" fill="#1f3a5f">9</text>
+    <rect x="56" y="88" width="10" height="12" fill="#e8b98f"/>
+    <circle cx="61" cy="76" r="15" fill="#f0c49c"/>
+    <circle cx="70" cy="82" r="3" fill="#e9a48f" opacity=".6"/><circle cx="53" cy="82" r="3" fill="#e9a48f" opacity=".6"/>
+    <path d="M46 74 q0 -18 16 -18 q15 0 16 14 q-6 -6 -12 -5 q-4 5 -12 3 q-4 3 -8 6 z" fill="#1b1b1f"/>
+    <circle cx="67" cy="78" r="1.8" fill="#222"/><circle cx="57" cy="78" r="1.8" fill="#222"/>
+    <path d="M57 85 q4 3.5 9 0" stroke="#9b4a3a" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+    ${prop}
+    <g transform="translate(64 106)"><g class="af"><line x1="0" y1="0" x2="0" y2="36" stroke="#f0c49c" stroke-width="7" stroke-linecap="round"/>${front}</g></g>
+  </g>`;
+}
+function grab(root){ const q = s => root.querySelector(s); return {af:q('.af'), ab:q('.ab'), up:q('.up'), lf:q('.lf'), lb:q('.lb')}; }
+function pose(k, af, ab, c = 0){
+  k.af.setAttribute('transform', `rotate(${-af})`);
+  k.ab.setAttribute('transform', `rotate(${-ab})`);
+  k.up.setAttribute('transform', `translate(0 ${c})`);
+  k.lf.setAttribute('d', `M66 ${160 + c} L${70 + c * .9} ${200 + c * .5} L72 244`);
+  k.lb.setAttribute('d', `M54 ${160 + c} L${50 + c * .6} ${200 + c * .5} L48 244`);
+}
+const BALL = `<circle r="9" fill="#fff" stroke="#3b3f4f" stroke-width="1.3"/><path d="M-9 0 q9 -4 18 0" stroke="#b8873a" stroke-width="2.4" fill="none"/><path d="M0 -9 q-5 9 0 18" stroke="#b8873a" stroke-width="2.4" fill="none"/><path d="M-6 -7 q8 4 13 13" stroke="#b8873a" stroke-width="2" fill="none"/>`;
+const GROUND = `<ellipse cx="120" cy="210" rx="96" ry="10" fill="rgba(31,58,95,.12)"/>`;
 
-function seeded(s){ return () => (s = (s * 16807) % 2147483647) / 2147483647; }
-
-function buildScene(h){
-  const W = Math.round(h * 4);                 // panorama width = 4x height (full 360°)
-  const c = document.createElement('canvas'); c.width = W; c.height = h;
-  const g = c.getContext('2d'), rnd = seeded(42), horizon = h * 0.62;
-
-  // sky
-  const sky = g.createLinearGradient(0,0,0,horizon);
-  sky.addColorStop(0,'#0b1430'); sky.addColorStop(.45,'#3b2a6b'); sky.addColorStop(.78,'#d9576b'); sky.addColorStop(1,'#ffb35c');
-  g.fillStyle = sky; g.fillRect(0,0,W,horizon);
-  // stars
-  for (let i=0;i<500;i++){ const y=rnd()*horizon*.5; g.globalAlpha=(1-y/(horizon*.5))*rnd(); g.fillStyle='#fff'; g.fillRect(rnd()*W,y,rnd()*1.8,rnd()*1.8); }
-  g.globalAlpha = 1;
-  // sun with glow (also drawn at W offset so it wraps)
-  const sunX = W*0.3, sunY = horizon*0.86;
-  [0,W,-W].forEach(dx=>{
-    const glow = g.createRadialGradient(sunX+dx,sunY,0,sunX+dx,sunY,h*.5);
-    glow.addColorStop(0,'rgba(255,220,150,.9)'); glow.addColorStop(.12,'rgba(255,180,90,.5)'); glow.addColorStop(1,'rgba(255,120,80,0)');
-    g.fillStyle=glow; g.fillRect(sunX+dx-h*.5,sunY-h*.5,h,h);
-    g.fillStyle='#fff3cf'; g.beginPath(); g.arc(sunX+dx,sunY,h*.045,0,Math.PI*2); g.fill();
-  });
-  // mountain ranges: sums of sines with whole-number periods so they loop perfectly
-  const ridge = (base, amp, color, harmonics) => {
-    g.fillStyle = color; g.beginPath(); g.moveTo(0,horizon);
-    for (let x=0;x<=W;x+=4){
-      const t = x/W*Math.PI*2; let y = 0;
-      harmonics.forEach(([k,a,p]) => y += Math.sin(t*k+p)*a);
-      g.lineTo(x, base - amp*(0.5+0.5*y));
-    }
-    g.lineTo(W,horizon); g.closePath(); g.fill();
+/* Volleyball: bump the ball up, set it to yourself, repeat */
+function volley(k, ball, shadow, peaks = [-40, -95]){
+  const BUMP = {x:94, y:134, arm:72, c:8}, SET = {x:72, y:50, arm:168, c:0}, durs = [1.1, 1.3];
+  return t => {
+    const T = durs[0] + durs[1], cyc = t % T, hop = cyc < durs[0] ? 0 : 1;
+    const tt = hop ? (cyc - durs[0]) / durs[1] : cyc / durs[0];
+    const from = hop ? SET : BUMP, to = hop ? BUMP : SET, peak = peaks[hop];
+    const ctl = 2 * peak - (from.y + to.y) / 2;                      // quadratic = real projectile arc
+    const x = lerp(from.x, to.x, tt), y = (1 - tt) ** 2 * from.y + 2 * tt * (1 - tt) * ctl + tt * tt * to.y;
+    ball.setAttribute('transform', `translate(${x} ${y}) rotate(${t * 360})`);
+    if (shadow){ shadow.setAttribute('cx', x); shadow.setAttribute('rx', 4 + 6 * (y + 110) / 360); }
+    const follow = Math.max(0, 1 - tt / .15), prep = ease(clamp((tt - .25) / .55));
+    pose(k, lerp(from.arm, to.arm, prep) + follow * 12, lerp(from.arm, to.arm, prep) - 6, lerp(from.c, to.c, prep) * (1 - follow * .6));
   };
-  ridge(horizon, h*.30, '#4b3b78', [[3,.6,1],[7,.3,2],[13,.15,.5],[29,.06,1]]);
-  ridge(horizon, h*.22, '#2c2a5a', [[4,.5,2.4],[9,.35,1],[17,.15,3],[41,.05,0]]);
-  ridge(horizon, h*.13, '#171a3a', [[5,.5,.7],[11,.3,2],[23,.2,1.2],[57,.08,0]]);
-  // lake with sky reflection
-  const lake = g.createLinearGradient(0,horizon,0,h);
-  lake.addColorStop(0,'#e0786a'); lake.addColorStop(.2,'#5b3f7a'); lake.addColorStop(1,'#0b1226');
-  g.fillStyle = lake; g.fillRect(0,horizon,W,h-horizon);
-  // shimmer
-  for (let i=0;i<900;i++){
-    const y = horizon + Math.pow(rnd(),1.6)*(h-horizon), near = Math.abs(((rnd()*W)%W) - sunX);
-    const x = rnd()*W; const d = Math.min(Math.abs(x-sunX), Math.abs(x-sunX-W), Math.abs(x-sunX+W));
-    g.globalAlpha = Math.max(.05, .7 - d/(h*1.2)) * (1-(y-horizon)/(h-horizon)) ;
-    g.fillStyle = '#ffd9a0'; g.fillRect(x, y, 10+rnd()*40, 1.2);
-  }
-  g.globalAlpha = 1;
-  // pine shoreline
-  g.fillStyle = '#0a0d22';
-  for (let x=0;x<W;x+=6+rnd()*14){
-    const th = h*(.02+rnd()*.05);
-    [0,W].forEach(dx=>{ if(x+dx<=W+20){ g.beginPath(); g.moveTo(x+dx-th*.28,horizon+1); g.lineTo(x+dx,horizon-th); g.lineTo(x+dx+th*.28,horizon+1); g.fill(); }});
-  }
-  // a tiny volleyball net on the beach (easter egg)
-  const nx = W*0.72, ny = horizon + h*.12;
-  g.strokeStyle='rgba(255,255,255,.75)'; g.lineWidth=2;
-  g.beginPath(); g.moveTo(nx,ny); g.lineTo(nx,ny-h*.09); g.moveTo(nx+h*.22,ny); g.lineTo(nx+h*.22,ny-h*.09); g.stroke();
-  g.lineWidth=1; g.strokeStyle='rgba(255,255,255,.5)';
-  for(let i=0;i<4;i++){ g.beginPath(); g.moveTo(nx,ny-h*.09+i*h*.008); g.lineTo(nx+h*.22,ny-h*.09+i*h*.008); g.stroke(); }
-  return c;
 }
 
-function setup(){
-  const dpr = Math.min(devicePixelRatio || 1, 2);
-  cv.width = hero.clientWidth * dpr; cv.height = hero.clientHeight * dpr;
-  if (PANORAMA_IMAGE){
-    const img = new Image();
-    img.onload = () => { const s = cv.height / img.height; const c = document.createElement('canvas');
-      c.width = img.width * s; c.height = cv.height; c.getContext('2d').drawImage(img,0,0,c.width,c.height); pano = c; panoW = c.width; };
-    img.src = PANORAMA_IMAGE;
+const SCENES = {
+  /* ---- About me: waving hello ---- */
+  about(svg){
+    svg.innerHTML = GROUND + `
+      <g class="bubble"><path d="M138 78 l-12 16 l24 -14z" fill="#fff" stroke="#c5d2e2" stroke-width="2"/>
+        <rect x="124" y="30" width="110" height="50" rx="18" fill="#fff" stroke="#c5d2e2" stroke-width="2"/>
+        <rect x="134" y="74" width="20" height="6" fill="#fff"/>
+        <text x="179" y="52" text-anchor="middle" font-family="Plus Jakarta Sans,Arial" font-weight="600" font-size="15" fill="#2b2d3a">Hi! I'm</text>
+        <text x="179" y="70" text-anchor="middle" font-family="Plus Jakarta Sans,Arial" font-weight="700" font-size="16" fill="#1f3a5f">Kagan</text></g>
+      <path class="heart" d="M0 3 C-6 -3 -10 2 0 10 C10 2 6 -3 0 3z" fill="#b8873a"/>
+      <g transform="translate(40 27) scale(.72)">${kid()}</g>`;
+    const k = grab(svg), b = svg.querySelector('.bubble'), h = svg.querySelector('.heart');
+    return t => {
+      pose(k, 150 + 22 * Math.sin(t * 9), 10 + 4 * Math.sin(t * 2), 1.5 + 1.5 * Math.sin(t * 3));
+      b.setAttribute('transform', `translate(0 ${2 * Math.sin(t * 2)})`);
+      const f = (t % 2.6) / 2.6;
+      h.setAttribute('transform', `translate(${112 + 8 * Math.sin(f * 9)} ${100 - 80 * f}) scale(${.8 + f * .6})`);
+      h.setAttribute('opacity', (1 - f).toFixed(2));
+    };
+  },
+
+  /* ---- Engineering: stacking LEGO next to a little VEX robot ---- */
+  engineering(svg){
+    const colors = ['#b8873a', '#8fa9c6', '#d9a95b', '#5b7fa6', '#2f5480', '#b8873a'];
+    let bricks = '';
+    colors.forEach((c, i) => bricks += `<g class="brick" data-i="${i}"><rect x="100" y="${193 - i * 13}" width="30" height="13" rx="2" fill="${c}" stroke="rgba(0,0,0,.15)"/><rect x="105" y="${189 - i * 13}" width="7" height="4" rx="1" fill="${c}"/><rect x="118" y="${189 - i * 13}" width="7" height="4" rx="1" fill="${c}"/></g>`);
+    svg.innerHTML = GROUND + bricks + `
+      <g class="robot">
+        <rect x="-16" y="-26" width="32" height="18" rx="4" fill="#8fa9c6" stroke="#1f3a5f" stroke-width="2"/>
+        <rect x="-10" y="-22" width="8" height="6" rx="1" fill="#eef3f8"/>
+        <line x1="8" y1="-26" x2="8" y2="-36" stroke="#1f3a5f" stroke-width="2"/><circle class="led" cx="8" cy="-38" r="3" fill="#b8873a"/>
+        <g class="rarm"><line x1="16" y1="-18" x2="30" y2="-18" stroke="#1f3a5f" stroke-width="3" stroke-linecap="round"/></g>
+        <g class="w1" transform="translate(-9 -6)"><circle r="6" fill="#3b3f4f"/><line x1="-5" y1="0" x2="5" y2="0" stroke="#aaa"/></g>
+        <g class="w2" transform="translate(9 -6)"><circle r="6" fill="#3b3f4f"/><line x1="-5" y1="0" x2="5" y2="0" stroke="#aaa"/></g>
+      </g>
+      <g transform="translate(6 27) scale(.72)">${kid({front:'<rect x="-7" y="34" width="14" height="8" rx="2" fill="#d9a95b"/>'})}</g>`;
+    const k = grab(svg), bs = [...svg.querySelectorAll('.brick')], r = svg.querySelector('.robot'),
+          ra = svg.querySelector('.rarm'), w1 = svg.querySelector('.w1'), w2 = svg.querySelector('.w2'), led = svg.querySelector('.led');
+    return t => {
+      const cyc = t % 7.6, n = Math.floor(cyc), f = cyc % 1;
+      bs.forEach((b, i) => {
+        if (i < n){ b.setAttribute('opacity', 1); b.removeAttribute('transform'); }
+        else if (i === n){ b.setAttribute('opacity', f); b.setAttribute('transform', `translate(0 ${-(1 - ease(f)) * 22})`); }
+        else b.setAttribute('opacity', 0);
+      });
+      if (n >= 6) pose(k, 160 + 10 * Math.sin(t * 10), 160, 0);        // tower done: celebrate!
+      else pose(k, 35 + 55 * Math.sin(Math.PI * f), 20, 6);
+      const x = 190 + 20 * Math.sin(t * 1.2);
+      r.setAttribute('transform', `translate(${x} 208)`);
+      const spin = -Math.cos(t * 1.2) * t * 200;
+      w1.setAttribute('transform', `translate(-9 -6) rotate(${spin})`); w2.setAttribute('transform', `translate(9 -6) rotate(${spin})`);
+      ra.setAttribute('transform', `rotate(${-25 * (1 + Math.sin(t * 3)) / 2} 16 -18)`);
+      led.setAttribute('opacity', (t * 2 % 1) < .5 ? 1 : .3);
+    };
+  },
+
+  /* ---- Internship: hammering the driving-range cover together ---- */
+  internship(svg){
+    svg.innerHTML = GROUND + `
+      <rect x="112" y="198" width="104" height="8" rx="3" fill="#9db58f"/>
+      <rect x="107" y="112" width="6" height="94" fill="#9aa5b8"/><rect x="211" y="112" width="6" height="94" fill="#9aa5b8"/>
+      <line x1="113" y1="140" x2="211" y2="118" stroke="#b9c2d0" stroke-width="2"/><line x1="113" y1="118" x2="211" y2="140" stroke="#b9c2d0" stroke-width="2"/>
+      <path d="M98 118 L162 82 L226 118 L226 124 L162 89 L98 124 Z" fill="#c9d3df" stroke="#8a96a8" stroke-width="1.5"/>
+      <path d="M114 112 L162 85 M130 104 L162 86 M146 95 L162 86 M178 95 L162 86 M194 104 L162 86 M210 112 L162 85" stroke="#a9b4c4" stroke-width="1"/>
+      <line x1="196" y1="198" x2="196" y2="160" stroke="#3b3f4f" stroke-width="2"/><path d="M196 160 l18 6 l-18 6z" fill="#b8873a"/>
+      <circle cx="172" cy="196" r="3.5" fill="#fff" stroke="#ccc"/>
+      <g class="spark" transform="translate(106 116)"><path d="M0 -10 L2 -2 L10 0 L2 2 L0 10 L-2 2 L-10 0 L-2 -2Z" fill="#d9a95b"/></g>
+      <g transform="translate(26 27) scale(.72)">${kid({front:'<line x1="0" y1="32" x2="0" y2="56" stroke="#a0673a" stroke-width="4" stroke-linecap="round"/><rect x="-9" y="52" width="18" height="9" rx="2" fill="#6b7280"/>'})}</g>`;
+    const k = grab(svg), sp = svg.querySelector('.spark'), P = .85;
+    return t => {
+      const f = (t % P) / P; let a;
+      if (f < .65) a = 70 + 85 * ease(f / .65); else { const g = (f - .65) / .35; a = 155 - 85 * g * g; }
+      pose(k, a, 30, 2);
+      const s = f < .2 ? 1 - f / .2 : 0;
+      sp.setAttribute('opacity', s.toFixed(2)); sp.setAttribute('transform', `translate(106 116) scale(${.6 + (1 - s) * .8})`);
+    };
+  },
+
+  /* ---- Volleyball: bump-set-bump on his own ---- */
+  volleyball(svg){
+    svg.innerHTML = GROUND + `
+      <line x1="224" y1="206" x2="224" y2="96" stroke="#3b3f4f" stroke-width="3"/>
+      <rect x="208" y="100" width="16" height="34" fill="url(#mesh)" stroke="#fff" stroke-width="2"/>
+      <defs><pattern id="mesh" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M0 0 L5 5 M5 0 L0 5" stroke="#9aa5b8" stroke-width=".6"/></pattern></defs>
+      <g transform="translate(62 52) scale(.62)"><ellipse class="bs" cx="94" cy="247" rx="7" ry="2.5" fill="rgba(31,58,95,.2)"/>${kid()}<g class="ball">${BALL}</g></g>`;
+    return volley(grab(svg), svg.querySelector('.ball'), svg.querySelector('.bs'), [-12, -62]);
+  },
+
+  /* ---- Resume: checking off his resume ---- */
+  resume(svg){
+    let rows = '';
+    [98, 109, 120, 131].forEach((y, i) => rows += `<rect x="99" y="${y - 5}" width="7" height="7" rx="1.5" fill="#fff" stroke="#c9b3bc"/><line x1="110" y1="${y - 1}" x2="${132 - i * 3}" y2="${y - 1}" stroke="#d6c9ce" stroke-width="2.5" stroke-linecap="round"/><path class="chk" d="M99 ${y - 2} l3 3 l6 -7" stroke="#1f3a5f" stroke-width="2.4" fill="none" stroke-linecap="round"/>`);
+    const paper = `<g class="paper"><rect x="93" y="76" width="46" height="62" rx="4" fill="#fff" stroke="#c5d2e2" stroke-width="2"/><rect x="99" y="82" width="26" height="5" rx="2" fill="#b8873a"/>${rows}
+      <g class="star" transform="translate(136 78)"><path d="M0 -9 L2.6 -2.8 L9 -2.8 L3.8 1.2 L5.8 7.6 L0 3.8 L-5.8 7.6 L-3.8 1.2 L-9 -2.8 L-2.6 -2.8Z" fill="#d9a95b" stroke="#e0a800"/></g></g>`;
+    svg.innerHTML = GROUND + `
+      <g opacity=".9"><rect x="176" y="168" width="44" height="34" rx="4" fill="#e3ebf4" stroke="#8fa9c6" stroke-width="2"/><rect x="172" y="160" width="20" height="10" rx="3" fill="#e3ebf4" stroke="#8fa9c6" stroke-width="2"/></g>
+      <g transform="translate(42 27) scale(.72)">${kid({prop:paper})}</g>`;
+    const k = grab(svg), cs = [...svg.querySelectorAll('.chk')], st = svg.querySelector('.star');
+    return t => {
+      const cyc = t % 4.2, n = Math.floor(cyc / .75);
+      cs.forEach((c, i) => c.setAttribute('opacity', i < n ? 1 : 0));
+      const sv = n >= 4 ? Math.min(1, (cyc - 3) / .25) : 0;
+      st.setAttribute('transform', `translate(136 78) scale(${sv}) rotate(${t * 60})`);
+      pose(k, 75 + 3 * Math.sin(t * 2.5), 72, 1 + Math.sin(t * 2.5));
+    };
+  },
+
+  /* ---- Contact: throwing a paper plane into the mailbox ---- */
+  contact(svg){
+    svg.innerHTML = GROUND + `
+      <rect x="203" y="158" width="7" height="48" fill="#a0673a"/>
+      <path d="M184 160 v-18 q0 -14 14 -14 h18 q14 0 14 14 v18 z" fill="#b8873a" stroke="#1f3a5f" stroke-width="2"/>
+      <rect x="186" y="142" width="14" height="4" rx="2" fill="#0d1b2e"/>
+      <g class="flag"><line x1="0" y1="0" x2="0" y2="-20" stroke="#3b3f4f" stroke-width="2.5"/><rect x="0" y="-20" width="12" height="8" fill="#b8873a"/></g>
+      <text class="sent" x="186" y="112" font-family="Plus Jakarta Sans,Arial" font-weight="600" font-size="13" fill="#1f3a5f">sent!</text>
+      <g class="plane"><path d="M-10 -5 L11 0 L-10 5 L-5 0Z" fill="#fff" stroke="#1f3a5f" stroke-width="1.6" stroke-linejoin="round"/><path d="M-5 0 L11 0" stroke="#1f3a5f" stroke-width="1"/></g>
+      <g transform="translate(14 27) scale(.72)">${kid()}</g>`;
+    const k = grab(svg), pl = svg.querySelector('.plane'), fl = svg.querySelector('.flag'), sent = svg.querySelector('.sent');
+    const tx = 14, ty = 27, s = .72, P0 = [tx + 96.6 * s, ty + 90.8 * s], P1 = [130, 0], P2 = [192, 144];
+    return t => {
+      const c = t % 3.6; let a;
+      if (c < .7) a = lerp(20, 170, ease(c / .7));
+      else if (c < .9) a = lerp(170, 60, (c - .7) / .2);
+      else a = lerp(60, 20, clamp((c - .9) / .6));
+      pose(k, a, 15, c > .7 && c < .95 ? 3 : 0);
+      if (c < .8){ const [hx, hy] = hand(a, 40); pl.setAttribute('transform', `translate(${tx + hx * s} ${ty + hy * s}) rotate(-20)`); pl.setAttribute('opacity', 1); }
+      else if (c < 2.3){
+        const u = (c - .8) / 1.5, m = 1 - u;
+        const x = m * m * P0[0] + 2 * m * u * P1[0] + u * u * P2[0], y = m * m * P0[1] + 2 * m * u * P1[1] + u * u * P2[1];
+        const dx = 2 * m * (P1[0] - P0[0]) + 2 * u * (P2[0] - P1[0]), dy = 2 * m * (P1[1] - P0[1]) + 2 * u * (P2[1] - P1[1]);
+        pl.setAttribute('transform', `translate(${x} ${y}) rotate(${Math.atan2(dy, dx) / D})`); pl.setAttribute('opacity', 1);
+      } else pl.setAttribute('opacity', 0);
+      const up = c >= 2.3;
+      fl.setAttribute('transform', `translate(228 152) rotate(${up ? 0 : 90})`);
+      sent.setAttribute('opacity', up ? clamp(1 - (c - 2.6) / .8) : 0);
+    };
+  },
+
+  /* ---- Bottom-right corner buddy ---- */
+  corner(svg){
+    svg.innerHTML = `<ellipse class="bs" cx="80" cy="246" rx="7" ry="2" fill="rgba(0,0,0,.18)"/>${kid()}<g class="ball">${BALL}</g>`;
+    return volley(grab(svg), svg.querySelector('.ball'), svg.querySelector('.bs'));
   }
-  pano = buildScene(cv.height); panoW = pano.width;
-}
+};
 
-function draw(){
-  if (!dragging) { offset += velocity; if (Math.abs(velocity) > 0.25) velocity *= 0.96; }
-  const o = ((offset % panoW) + panoW) % panoW;
-  ctx.drawImage(pano, -o, 0);
-  if (panoW - o < cv.width) ctx.drawImage(pano, panoW - o, 0);
-  // darken slightly so text stays readable
-  ctx.fillStyle = 'rgba(8,12,28,.28)'; ctx.fillRect(0,0,cv.width,cv.height);
-  requestAnimationFrame(draw);
-}
-
-hero.addEventListener('pointerdown', e => { if (e.target.closest('a')) return; dragging = true; lastX = e.clientX; hero.classList.add('dragging'); hero.setPointerCapture(e.pointerId); });
-hero.addEventListener('pointermove', e => { if (!dragging) return; const dx = (e.clientX - lastX) * (devicePixelRatio||1); offset -= dx; velocity = -dx; lastX = e.clientX; });
-['pointerup','pointercancel'].forEach(t => hero.addEventListener(t, () => { dragging = false; hero.classList.remove('dragging'); if (Math.abs(velocity) < .25) velocity = reduceMotion ? 0 : -0.25; }));
-addEventListener('resize', setup);
-setup(); draw();
-
-/* ================================================================
-   MINI ME: bumps the ball up, sets it to himself, repeat.
-   ================================================================ */
-(() => {
-  const $ = id => document.getElementById(id);
-  const armF = $('arm-front'), armB = $('arm-back'), upper = $('upper'), ball = $('ball'), shadow = $('ball-shadow');
-  const legF = $('leg-front'), legB = $('leg-back');
-  // contact points (SVG coords) and arm angles (deg, 0 = hanging down, + = forward)
-  const BUMP = {x:94, y:134, arm:72, crouch:8};   // forearms out in front, knees bent
-  const SET  = {x:72, y:50,  arm:168, crouch:0};  // hands above forehead
-  const hops = [
-    {from:BUMP, to:SET,  peak:-40, dur:1100},     // bump goes up, comes down to the set position
-    {from:SET,  to:BUMP, peak:-95, dur:1300},     // set goes higher, comes down to forearms
-  ];
-  let i = 0, start = performance.now(), paused = reduceMotion, spin = 0, pausedAt = 0;
-  const lerp = (a,b,t) => a + (b-a)*t, ease = t => t<.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2;
-
-  function pose(arm, crouch){
-    armF.setAttribute('transform', `rotate(${-arm} 64 106)`);
-    armB.setAttribute('transform', `rotate(${-arm+6} 58 106)`);
-    upper.setAttribute('transform', `translate(0 ${crouch})`);
-    legF.setAttribute('d', `M66 ${160+crouch} L${70+crouch*.9} ${200+crouch*.5} L72 244`);
-    legB.setAttribute('d', `M54 ${160+crouch} L${50+crouch*.6} ${200+crouch*.5} L48 244`);
-  }
-
-  function frame(now){
-    if (!paused){
-      const h = hops[i]; let t = (now - start) / h.dur;
-      if (t >= 1){ i = (i+1) % hops.length; start = now; t = 0; }
-      const {from, to, peak} = hops[i], tt = Math.min(t,1);
-      // projectile: x linear in time, y quadratic (control point gives the peak)
-      const c = 2*peak - (from.y + to.y)/2;
-      const x = lerp(from.x, to.x, tt);
-      const y = (1-tt)*(1-tt)*from.y + 2*tt*(1-tt)*c + tt*tt*to.y;
-      spin += 6;
-      ball.setAttribute('transform', `translate(${x} ${y}) rotate(${spin})`);
-      shadow.setAttribute('cx', x); shadow.setAttribute('rx', 4 + 6*(y+110)/360);
-      // arms: follow-through right after contact, then move into the next pose
-      const follow = Math.max(0, 1 - tt/0.15);
-      const prep = ease(Math.min(1, Math.max(0, (tt-0.25)/0.55)));
-      const arm = lerp(from.arm, to.arm, prep) + follow*12;
-      const crouch = lerp(from.crouch, to.crouch, prep) * (1 - follow*0.6);
-      pose(arm, crouch);
-    }
-    requestAnimationFrame(frame);
-  }
-  pose(BUMP.arm, BUMP.crouch);
-  $('mini-me').addEventListener('click', () => {
-    paused = !paused;
-    if (paused) pausedAt = performance.now(); else start += performance.now() - pausedAt;
+const updaters = [...document.querySelectorAll('svg[data-scene]')].map(svg => ({svg, fn: SCENES[svg.dataset.scene](svg)}));
+let cornerPaused = false, cornerOffset = 0, pausedAt = 0;
+document.getElementById('mini-me').addEventListener('click', () => {
+  const now = performance.now() / 1000;
+  if (cornerPaused) cornerOffset += now - pausedAt; else pausedAt = now;
+  cornerPaused = !cornerPaused;
+});
+function tick(ms){
+  const t = ms / 1000;
+  updaters.forEach(({svg, fn}) => {
+    if (svg.dataset.scene === 'corner'){ if (!cornerPaused) fn(t - cornerOffset); }
+    else fn(t);
   });
-  if (paused) ball.setAttribute('transform', `translate(${BUMP.x} ${BUMP.y})`);
-  requestAnimationFrame(frame);
-})();
+  if (!reduceMotion) requestAnimationFrame(tick);
+}
+tick(1300);
+if (!reduceMotion) requestAnimationFrame(tick);
 </script>
 </body>
 </html>
