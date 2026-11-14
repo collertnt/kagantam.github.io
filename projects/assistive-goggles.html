@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assistive goggles | Kagan Tam</title>
+<meta name="description" content="A wearable prototype for people with visual impairments: Arduino, ultrasonic sensors and audio feedback.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23ffc933' stroke='%230d2057' stroke-width='2'/%3E%3Cpath d='M2 16q14-7 28 0M16 2q-8 14 0 28' stroke='%231b40ad' stroke-width='3' fill='none'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Architects+Daughter&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<!-- data-project must match this page's slug in js/projects.js. It sets the page colour,
+     the header drawing and the "next project" link. data-root tells the scripts where the homepage is. -->
+<body data-project="assistive-goggles" data-root="../">
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a class="nav-name" href="../index.html">Kagan Tam</a>
+    <button class="nav-toggle" aria-expanded="false">Menu</button>
+    <ul class="nav-links">
+      <li><a href="../index.html#process">Process</a></li>
+      <li><a class="on" href="../index.html#projects">Projects</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#volleyball">Volleyball</a></li>
+      <li><a href="../index.html#resume">Resume</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+<!-- ================= HEADER ================= -->
+<header class="phero sheet">
+  <div class="wrap">
+    <a class="back" href="../index.html#projects"><svg width="22" height="14" viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 7H2M8 1L2 7l6 6"/></svg>All projects</a>
+    <div class="phero-grid">
+      <div>
+        <h1>Assistive goggles</h1>
+        <p class="sub">A wearable prototype for people with visual impairments. Ultrasonic sensors measure the distance to obstacles and firmware turns it into audio cues.</p>
+      </div>
+      <div class="phero-art" data-art></div>
+    </div>
+    <dl class="titleblock">
+      <div><dt>Type</dt><dd>Personal project</dd></div>
+      <div><dt>Status</dt><dd>Prototype built</dd></div>
+      <div><dt>When</dt><dd>Aug 2025</dd></div>
+      <div><dt>Tools</dt><dd>Arduino, C++, ultrasonic sensors, audio feedback</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- ================= BODY =================
+     Each <section class="stage"> is one stage of the design process.
+       id          used by the side menu link
+       data-stage  the name shown in the side menu
+       data-status "planned" draws a hollow dot (not done yet); leave it out when done -->
+<div class="wrap">
+  <div class="pbody">
+    <nav class="rail" aria-label="Design process stages">
+      <ol></ol>
+      <p class="key"><i></i>done<br><i class="o"></i>planned</p>
+    </nav>
+    <div>
+
+      <section class="stage" id="define" data-stage="Define">
+        <p class="stage-tag lbl"><b>Define</b></p>
+        <h2>Warn the wearer about obstacles ahead</h2>
+        <p>A wearable assistive navigation prototype for people with visual impairments. It detects obstacles in front of the wearer in real time and tells them through sound.</p>
+      </section>
+
+      <section class="stage" id="build" data-stage="Build">
+        <p class="stage-tag lbl"><b>Build</b></p>
+        <h2>An Arduino, ultrasonic rangefinders and an earpiece</h2>
+        <p>An Arduino microcontroller reads ultrasonic rangefinders mounted on the goggles. Each sensor sends out a pulse of sound and times how long the echo takes to come back.</p>
+        <p>The C++ firmware converts that time of flight into a distance. Drag the obstacle to see the numbers it works with.</p>
+        <div class="sonar" data-bench="sonar">
+          <div class="sonar-draw sheet"></div>
+          <div class="bench-ctl">
+            <div>
+              <label for="dist">Distance to the obstacle <output data-out="d" for="dist"></output></label>
+              <input id="dist" type="range" min="0.3" max="3" step="0.05" value="1.5">
+            </div>
+            <div>
+              <dl class="readouts" style="margin-top:0;grid-template-columns:1fr">
+                <div><dt>Echo comes back after</dt><dd data-out="t"></dd></div>
+              </dl>
+              <p class="lcd-cap">Distance = speed of sound × time ÷ 2, with sound at 343 m/s. The pulse on screen is slowed down so you can see it.</p>
+            </div>
+          </div>
+        </div>
+        <p style="margin-top:20px">An audio feedback loop through an integrated earpiece turns obstacle proximity into real-time cues the wearer can navigate by.</p>
+      </section>
+
+      <section class="stage" id="test" data-stage="Test and iterate">
+        <p class="stage-tag lbl"><b>Test and iterate</b></p>
+        <h2>Filtering out noise and false triggers</h2>
+        <p>Ultrasonic readings get messy when the sensor is moving. The firmware filters out sensor noise and false triggers during movement, so the wearer only hears about obstacles that are really there.</p>
+      </section>
+    </div>
+  </div>
+</div>
+</main>
+
+<!-- "Next project" link: filled in automatically from js/projects.js -->
+<aside class="pnext"><div class="wrap"></div></aside>
+<footer class="foot">
+  <div class="wrap"><span>© <span data-year>2026</span> Kagan Tam</span><a href="mailto:kagantam@gmail.com">kagantam@gmail.com</a></div>
+</footer>
+
+<script src="../js/projects.js"></script>
+<script src="../js/art.js"></script>
+<script src="../js/site.js"></script>
+</body>
+</html>
